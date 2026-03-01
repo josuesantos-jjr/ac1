@@ -1,7 +1,7 @@
-# Use uma imagem oficial do Node.js LTS
-FROM node:20-bullseye
+# Use Bun como runtime
+FROM oven/bun:1-debian
 
-# Instala dependências do sistema operacional necessárias para o Puppeteer/Chromium
+# Instala dependências do sistema operacional necessárias para o Chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     gnupg \
@@ -45,36 +45,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia package.json e package-lock.json (ou yarn.lock, pnpm-lock.yaml)
-# Usar lockfile garante instalações consistentes
-COPY package.json package-lock.json* ./
+# Copia package.json e bun.lock
+COPY package.json bun.lock* ./
 
-# Instala as dependências do projeto
-# Usar --legacy-peer-deps para resolver conflitos de dependências
-RUN npm install --legacy-peer-deps && npm cache clean --force
-RUN npm install -g pm2 && npm cache clean --force
-# Cria um link simbólico para garantir que o comando 'pm2' seja encontrado pelo /bin/sh
-RUN ln -sf $(which pm2) /usr/bin/pm2
+# Instala as dependências do projeto usando bun
+RUN bun install
+
+# Instala dependências globais
+RUN bun add -g pm2
+
+# Copia o restante do código da aplicação para o diretório de trabalho
+COPY . .
 
 # Configura variáveis de ambiente para o Puppeteer usar o Chromium instalado via apt
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-# Copia o restante do código da aplicação para o diretório de trabalho
-COPY . .
-
 # Faz o build da aplicação Next.js
-RUN npm run build
+RUN bun run build
 
-# Adiciona o diretório de binários locais ao PATH para garantir que o pm2 seja encontrado pelo shell
-ENV PATH="/app/node_modules/.bin:$PATH"
-
-# Expõe a porta que o Next.js usa por padrão (ou a que você configurar)
+# Expõe a porta que o Next.js usa por padrão
 EXPOSE 3000
 
-# Define variáveis de ambiente (opcional, melhor configurar no Render)
-# ENV NODE_ENV=production
-# ENV PORT=3000
-
-# Comando para iniciar a aplicação usando pm2-runtime com o arquivo de configuração
-CMD ["pm2-runtime", "start", "ecosystem.config.cjs"]
+# Comando para iniciar a aplicação usando pm2 com o arquivo de configuração
+CMD ["pm2", "start", "ecosystem.config.cjs"]
