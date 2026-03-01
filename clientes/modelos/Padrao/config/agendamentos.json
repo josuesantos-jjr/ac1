@@ -1,0 +1,19 @@
+[
+  {
+    "chatId": "5519989808901@c.us",
+    "detalhes_agendamento": [
+      {
+        "agendamento_identificado": true,
+        "tipo_agendamento": "visita",
+        "data_agendada": "14/05/2024",
+        "horario_agendado": "10:00",
+        "agendamento_notificado": [
+          {
+            "chatid": false,
+            "TARGET_CHATID": false
+          }
+        ]
+      }
+    ]
+  }
+]

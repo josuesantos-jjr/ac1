@@ -1,0 +1,8 @@
+api
+sk-a9132d90b0d444f2aa51025fbcad618b
+
+url base
+https://ia.aceleracaocomercial.com/api
+
+model
+cogito:3b

@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Token folder
+tokens/
+
+# Next.js build output
+.next/
+
+# Cache folders
+.cache/
+.cache/
+bk/
+cache/
+
+# Log files (if any)
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary audio files and transcriptions
+**/config/transcrever/
+**/transcrever/
+
+# Media files and gatilhos media
+**/config/gatilhosMedias/
+**/gatilhosMedias/
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp

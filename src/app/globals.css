@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --text-primary: #000000;
+  --card-background: #ffffff;
+  --card-border: #e1e1e1;
+  --hover-bg: #f5f5f5;
+  --header-bg: #ffffff;
+  --secondary-bg: #f8f9fa;
+  --text-secondary: #6c757d;
+
+  /* Glassmorphism variables */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-backdrop: blur(16px);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+[data-theme='dark'] {
+  --background: #1e1e1e;
+  --text-primary: #ffffff;
+  --card-background: #2d2d2d;
+  --card-border: #404040;
+  --hover-bg: #3a3a3a;
+  --header-bg: #252525;
+  --secondary-bg: #333333;
+  --text-secondary: #a0a0a0;
+
+  /* Glassmorphism variables for dark theme */
+  --glass-bg: rgba(37, 37, 38, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-backdrop: blur(16px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+/* Garantir que todas as divs e elementos principais respeitem o tema */
+[data-theme='dark'] div,
+[data-theme='dark'] section,
+[data-theme='dark'] aside,
+[data-theme='dark'] main,
+[data-theme='dark'] article {
+  background-color: var(--background) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Elementos com CSS Modules */
+[data-theme='dark'] [class*='_container'],
+[data-theme='dark'] [class*='_panel'],
+[data-theme='dark'] [class*='_section'],
+[data-theme='dark'] [class*='_wrapper'],
+[data-theme='dark'] [class*='_content'],
+[data-theme='dark'] [class*='_box'] {
+  background-color: var(--card-background) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Elementos específicos da aplicação */
+[data-theme='dark'] [class*='dashboard'],
+[data-theme='dark'] [class*='relatorio'],
+[data-theme='dark'] [class*='modal'],
+[data-theme='dark'] [class*='page'] {
+  background-color: var(--background) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Elementos aninhados */
+[data-theme='dark'] [class*='_container'] > *,
+[data-theme='dark'] [class*='_panel'] > *,
+[data-theme='dark'] [class*='_section'] > * {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Estilo base para todos os elementos */
+html,
+body,
+#__next,
+main,
+.theme-root {
+  background-color: var(--background) !important;
+  color: var(--text-primary) !important;
+  min-height: 100vh;
+}
+
+/* Seções e containers */
+.section,
+.container,
+.panel,
+.dashboard,
+.card,
+.modalContent,
+div[class*='page_'],
+div[class*='container_'],
+div[class*='panel_'],
+div[class*='dashboard_'],
+div[class*='section_'],
+[class*='Module_'] {
+  background-color: var(--card-background) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Headers e navegação */
+header,
+nav,
+.navbar,
+.header {
+  background-color: var(--header-bg) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Inputs e campos de formulário */
+input,
+select,
+textarea {
+  background-color: var(--card-background) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Tabelas */
+table {
+  background-color: var(--card-background) !important;
+  color: var(--text-primary) !important;
+}
+
+th,
+td {
+  border-color: var(--card-border) !important;
+}
+
+tr:nth-child(even) {
+  background-color: var(--secondary-bg) !important;
+}
+
+/* Links */
+a {
+  color: var(--text-primary) !important;
+}
+
+a:hover {
+  color: var(--text-secondary) !important;
+}
+
+/* Botões padrão */
+button:not(.themeToggle) {
+  background-color: var(--card-background) !important;
+  border-color: var(--card-border) !important;
+  color: var(--text-primary) !important;
+}
+
+button:not(.themeToggle):hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--card-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/* Cards e seções */
+[data-theme='dark'] .section {
+  background-color: var(--card-background);
+  border-color: var(--card-border);
+}
+
+[data-theme='dark'] .card {
+  background-color: var(--card-background);
+  border-color: var(--card-border);
+}
+
+/* Header */
+[data-theme='dark'] .header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Inputs e botões */
+[data-theme='dark'] input,
+[data-theme='dark'] select,
+[data-theme='dark'] textarea {
+  background-color: var(--card-background);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] button {
+  border-color: var(--card-border);
+}
+
+[data-theme='dark'] button:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Tabelas */
+[data-theme='dark'] table {
+  border-color: var(--card-border);
+}
+
+[data-theme='dark'] th,
+[data-theme='dark'] td {
+  border-color: var(--card-border);
+}
+
+[data-theme='dark'] thead th {
+  background-color: var(--card-background);
+}
+
+[data-theme='dark'] tbody tr:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Status badges */
+[data-theme='dark'] .statusBadge {
+  opacity: 0.9;
+}
+
+/* Modais */
+[data-theme='dark'] .modalContent {
+  background-color: var(--card-background);
+  border-color: var(--card-border);
+
+  /* Nome do cliente no card header */
+  [data-theme='dark'] [class*='page_cardHeader'] h2 {
+    color: var(--text-primary) !important;
+  }
+
+  /* Nome do cliente */
+  [data-theme='dark'] .nomeCliente,
+  [data-theme='dark'] [class*='_nomeCliente'] {
+    color: var(--text-primary) !important;
+  }
+}
+
+/* Scrollbar */
+[data-theme='dark'] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: var(--card-background);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}

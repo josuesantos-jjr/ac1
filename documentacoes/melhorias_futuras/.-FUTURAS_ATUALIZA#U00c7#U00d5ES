@@ -1,0 +1,15 @@
+- implementar uma função que implementa o sqlite, organiza e armazena todas as informações de todos os json, seguindo a hierarquia de pastas para as tabelas do banco de dados
+- implementar uma função que faz backup automático do banco de dados a cada 1 hora, e salva em uma pasta de backups, com o nome do banco e a data e hora do backup
+- implementar sincronização com planilha google sheets ter mais uma fonte de listas para disparo
+- implementar crm com base em todos os disparos e no funil de vendas. O disparo vai ser como o primeiro contato, 
+- implementar o Turso banco de dados que usa o SQLite na nuvem, para armazenar os dados dos leads e das conversas
+- implementar uma função que faz a análise de sentimentos das conversas, e classifica os leads como quente, morno ou frio, baseado nas respostas do cliente
+- implementar uma função que gera relatórios semanais e mensais das conversas, leads e vendas, e envia por whatsapp para o administrador
+- implementar uma função que faz o agendamento de follow-ups automáticos, baseado no histórico da conversa e no perfil do lead
+- implementar uma função que faz a integração com outras plataformas de CRM, como Hubspot, Salesforce, etc.
+- implementar o proprio sistema de CRM simples, para gerenciar os leads e as conversas, com funil de vendas, etiquetas, notas, etc.
+- implementar gestão centralizada de todos os chatids e todos os dados relacionados a cada chatid para mapeamento completo de cada cliente
+- implementar função de analise de publico e padrao de comportamento do banco centralizado de chatids
+- implementar função para gerar novas listas com base nos dados e tags os chatids centralizados
+- implementar função para segmentação avançada de listas com base nos dados e tags dos chatids centralizados
+- implementar mecanismo de auto aprendizado com base nas interações e respostas dos clientes, para melhorar os prompts e as respostas geradas

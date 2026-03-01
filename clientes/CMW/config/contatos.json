@@ -1,0 +1,37 @@
+[
+  {
+    "id": "gdk1o4bwfli",
+    "nome": "Nome do cliente: Josué",
+    "clientId": "ativos/GlobalTur"
+  },
+  {
+    "id": "6ybpxvdttph",
+    "telefone": "5519989808901",
+    "nome": "Josué",
+    "clientId": "ativos/CMW"
+  },
+  {
+    "id": "d5awwqhwzmw",
+    "telefone": "5519994236090",
+    "nome": "Willian",
+    "clientId": "ativos/CMW"
+  },
+  {
+    "id": "k4phalua4a",
+    "telefone": "5519993890758",
+    "nome": "Não identificado",
+    "clientId": "CMW"
+  },
+  {
+    "id": "15igxt4hb96",
+    "telefone": "5511972399155",
+    "nome": "Vera",
+    "clientId": "CMW"
+  },
+  {
+    "id": "p3yttyhjhtr",
+    "telefone": "5519992009340",
+    "nome": "Jose",
+    "clientId": "CMW"
+  }
+]

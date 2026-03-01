@@ -1,0 +1,7 @@
+BACKUP DE TESTE
+Data: 18/10/2025, 20:31:53
+Arquivo: backup-teste-2025-10-18T23-31-53-566Z.txt
+Status: Simulado com sucesso
+
+Este arquivo simula um backup real da pasta clientes.
+Em produção, este seria um arquivo ZIP contendo toda a pasta.
