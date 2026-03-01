@@ -219,6 +219,7 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
         <Plus className="w-6 h-6" />
       </motion.button>
     </div>
+    </div>
   );
 };
 
