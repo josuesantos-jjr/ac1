@@ -1,12 +1,4 @@
-FROM debian:bookworm-slim
-
-# Instalar Bun
-RUN apt-get update && apt-get install -y curl && \
-    curl -fsSL https://bun.sh/install | bash && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Adicionar Bun ao PATH
-ENV PATH="/root/.bun/bin:$PATH"
+FROM oven/bun:1-debian
 
 # Instalar dependências do Chromium
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -33,7 +25,7 @@ WORKDIR /app
 
 COPY package.json bun.lock* ./
 
-RUN bun install --global pm2
+RUN bun install
 
 COPY . .
 
