@@ -76,7 +76,9 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
       </div>
 
       {/* Sidebar Flutuante */}
-      <aside
+      <div
+        role="complementary"
+        aria-label="Sidebar"
         className="fixed left-6 top-6 bottom-6 w-72 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl"
       >
         <div className="p-6 h-full flex flex-col">
@@ -198,7 +200,7 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
               </div>
             </div>
           </div>
-        </aside>
+        </div>
 
         {/* Main Content */}
       <main className="ml-80 p-6">
