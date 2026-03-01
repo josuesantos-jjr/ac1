@@ -1,11 +1,10 @@
-# Use uma imagem oficial do Node.js LTS (Alpine é menor, mas pode exigir mais dependências manuais)
-# Usaremos a versão Debian (bullseye/bookworm) que tende a ter melhor compatibilidade de libs
-FROM node:24-bookworm
+# Use uma imagem oficial do Node.js LTS
+FROM node:20-bullseye
 
 # Instala dependências do sistema operacional necessárias para o Puppeteer/Chromium
-# Fonte: https://pptr.dev/troubleshooting#running-puppeteer-on-docker
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget \
+    gnupg \
     ca-certificates \
     fonts-liberation \
     libasound2 \
@@ -39,20 +38,9 @@ RUN apt-get update \
     libxss1 \
     libxtst6 \
     lsb-release \
-    wget \
     xdg-utils \
-    fonts-ipafont-gothic \
-    fonts-wqy-zenhei \
-    gnupg \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/googlechrome-linux-keyring.gpg \
-    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/googlechrome-linux-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
-    && apt-get update \
-    && apt-get install -y google-chrome-stable --no-install-recommends \
-    # Criar symlink para compatibilidade com WppConnect que procura chromium-browser
-    && ln -sf /usr/bin/google-chrome-stable /bin/chromium-browser \
-    # Limpa o cache do apt para reduzir o tamanho da imagem
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    chromium \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -68,9 +56,9 @@ RUN npm install -g pm2 && npm cache clean --force
 # Cria um link simbólico para garantir que o comando 'pm2' seja encontrado pelo /bin/sh
 RUN ln -sf $(which pm2) /usr/bin/pm2
 
-# Configura variáveis de ambiente para o Puppeteer usar o Chrome instalado via apt
+# Configura variáveis de ambiente para o Puppeteer usar o Chromium instalado via apt
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # Copia o restante do código da aplicação para o diretório de trabalho
 COPY . .
