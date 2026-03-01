@@ -201,9 +201,9 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
               </div>
             </div>
           </div>
-        </div>
+        </motion.aside>
 
-      {/* Main Content */}
+        {/* Main Content */}
       <main className="ml-80 p-6">
         <motion.div
           key={activeSection}

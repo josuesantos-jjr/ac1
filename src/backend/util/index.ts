@@ -635,7 +635,7 @@ Reformule a mensagem:
     { name: 'Groq', fn: async () => {
       const { mainGroqSuporte } = await import('../service/groqSuporte.ts');
       return await mainGroqSuporte({ currentMessage: reformulationPrompt, chatId, clearHistory: true, __dirname });
-    },
+    }},
     { name: 'Ollama', fn: async () => {
       const { mainOllamaService } = await import('../service/ollamaService.ts');
       return await mainOllamaService({ currentMessage: reformulationPrompt, chatId, clearHistory: true, __dirname });
