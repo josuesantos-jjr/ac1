@@ -203,6 +203,8 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
         </div>
 
         {/* Main Content */}
+      <main className="ml-80 p-6">
+        {children}
       </main>
 
       {/* Floating Action Button for Quick Actions */}
