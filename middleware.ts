@@ -13,7 +13,7 @@ export default withAuth(
       return NextResponse.redirect(new URL('/unauthorized', req.url));
     }
 
-    if (isManagerRoute && !['super_admin', 'manager'].includes(token?.role)) {
+    if (isManagerRoute && !['super_admin', 'manager'].includes(token?.role as string)) {
       return NextResponse.redirect(new URL('/unauthorized', req.url));
     }
 
