@@ -76,11 +76,8 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
       </div>
 
       {/* Sidebar Flutuante */}
-      <motion.aside
+      <aside
         className="fixed left-6 top-6 bottom-6 w-72 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl"
-        initial={{ x: -300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100 }}
       >
         <div className="p-6 h-full flex flex-col">
           <div className="mb-8">
@@ -201,7 +198,7 @@ const ManagerLayoutShell: React.FC<ManagerLayoutShellProps> = ({ children }) => 
               </div>
             </div>
           </div>
-        </motion.aside>
+        </aside>
 
         {/* Main Content */}
       <main className="ml-80 p-6">
