@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export default function DraggableCard({
   cliente,
+  clientId, // código fixo do cliente (opcional, alternativacliente.codigo || cliente.id)
   onEditarCliente,
   onIniciarCliente,
   onCopy,
@@ -18,6 +19,8 @@ export default function DraggableCard({
   onDownloadClientFolder, // Nova prop para baixar pasta
   existingClients = [],
 }) {
+  // Usa clientId passado explicitamente ou deriva do cliente
+  const codigoCliente = clientId || cliente.codigo || cliente.id;
   const [loading, setLoading] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(cliente.status);
   const [pm2Status, setPm2Status] = useState('unknown'); // Status real do PM2
@@ -48,7 +51,7 @@ export default function DraggableCard({
     const checkEnvStatus = async () => {
       try {
         const response = await fetch(
-          `/api/env-status?clientId=${encodeURIComponent(cliente.name)}`
+          `/api/env-status?clientId=${encodeURIComponent(codigoCliente)}`
         );
         const data = await response.json();
         if (data.status) {
@@ -61,7 +64,7 @@ export default function DraggableCard({
     };
     checkEnvStatus();
     // A atualização pode ser feita recarregando a lista de clientes no dashboard principal
-  }, [cliente.name]);
+  }, [codigoCliente]);
 
 
   // Hook para buscar status da sessão do infoCliente.json
@@ -69,7 +72,7 @@ export default function DraggableCard({
     const fetchSessionStatus = async () => {
       try {
         const response = await fetch(
-          `/api/client-config?clientId=${encodeURIComponent(cliente.name)}`
+          `/api/client-config?clientId=${encodeURIComponent(codigoCliente)}`
         );
         const data = await response.json();
         if (data && data.STATUS_SESSION) {
@@ -89,7 +92,7 @@ export default function DraggableCard({
     } else {
       setSessionStatusDisplay('N/A (Modelo)');
     }
-  }, [cliente.name]); // Depend on client name
+  }, [codigoCliente]); // Depend on client code
 
   // Hook para buscar informações de disparo reais
   useEffect(() => {
@@ -101,7 +104,7 @@ export default function DraggableCard({
       }));
       try {
         const response = await fetch(
-          `/api/disparo-status?clientId=${encodeURIComponent(cliente.name)}`
+          `/api/disparo-status?clientId=${encodeURIComponent(codigoCliente)}`
         );
         if (!response.ok) {
           throw new Error(`Erro na API: ${response.statusText}`);
@@ -117,7 +120,7 @@ export default function DraggableCard({
         });
       } catch (error) {
         console.error(
-          `Erro ao buscar info de disparo para ${cliente.name}:`,
+          `Erro ao buscar info de disparo para ${codigoCliente}:`,
           error
         );
         setDisparoInfo({
@@ -144,13 +147,13 @@ export default function DraggableCard({
         loading: false,
       });
     }
-}, [cliente.name]); // Depend on client name
+}, [cliente.codigo || cliente.id]); // Depend on client code
 
   // Hook para verificar status real do PM2
   useEffect(() => {
     const checkPm2Status = async () => {
       try {
-        const response = await fetch(`/api/pm2-status?clientId=${encodeURIComponent(cliente.name)}`);
+        const response = await fetch(`/api/pm2-status?clientId=${encodeURIComponent(codigoCliente)}`);
         if (response.ok) {
           const data = await response.json();
           setPm2Status(data.status || 'not_found');
@@ -169,7 +172,7 @@ export default function DraggableCard({
       const interval = setInterval(checkPm2Status, 30000);
       return () => clearInterval(interval);
     }
-  }, [cliente.name]);
+  }, [codigoCliente]);
 
   const handleStartStop = async () => {
     if (loading) return;
@@ -187,7 +190,8 @@ export default function DraggableCard({
       });
 
       // Chama a função do dashboard com os parâmetros corretos
-      await onIniciarCliente(cliente.name, cliente.folderType, action);
+      // Usa codigo (código fixo) ou id (nome da pasta) - nunca o name de exibição
+      await onIniciarCliente(cliente.codigo || cliente.id, cliente.folderType, action);
 
       // Atualiza o estado do PM2 após a ação
       setPm2Status(isOnline ? 'not_found' : 'online');

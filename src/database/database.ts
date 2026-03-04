@@ -78,7 +78,8 @@ export class SQLiteDatabase {
       `);
 
       // Verificar quais migrações já foram aplicadas
-      const appliedMigrations = this.db!.prepare('SELECT version FROM schema_migrations').all() as { version: number }[];
+      const appliedMigrationsResult = this.db!.prepare('SELECT version FROM schema_migrations').all();
+      const appliedMigrations = Array.isArray(appliedMigrationsResult) ? appliedMigrationsResult as { version: number }[] : [];
       const appliedVersions = new Set(appliedMigrations.map(m => m.version));
 
       // Executar migrações pendentes
