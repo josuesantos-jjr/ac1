@@ -11,6 +11,7 @@ export interface Cliente {
   status: string;
   folder_type?: string | null; // Agora opcional - não usamos mais subpastas
   cliente?: string;
+  codigo?: string; // código fixo do cliente
   ai_selected?: string;
   target_chat_id?: string;
   gemini_key?: string;
@@ -119,7 +120,7 @@ export class ClienteCRUD {
       // Update
       const stmt = this.db.prepare(`
         UPDATE clientes SET
-          name = ?, status = ?, folder_type = ?, cliente = ?, ai_selected = ?,
+          name = ?, status = ?, folder_type = ?, cliente = ?, codigo = ?, ai_selected = ?,
           target_chat_id = ?, gemini_key = ?, groq_key = ?, updated_at = CURRENT_TIMESTAMP
         WHERE client_id = ?
       `);
@@ -128,6 +129,7 @@ export class ClienteCRUD {
         cliente.status,
         cliente.folder_type,
         cliente.cliente,
+        cliente.codigo,
         cliente.ai_selected,
         cliente.target_chat_id,
         cliente.gemini_key,
@@ -138,8 +140,8 @@ export class ClienteCRUD {
     } else {
       // Insert
       const stmt = this.db.prepare(`
-        INSERT INTO clientes (client_id, name, status, folder_type, cliente, ai_selected, target_chat_id, gemini_key, groq_key)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO clientes (client_id, name, status, folder_type, cliente, codigo, ai_selected, target_chat_id, gemini_key, groq_key)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
       const result = stmt.run(
         cliente.client_id,
@@ -147,6 +149,7 @@ export class ClienteCRUD {
         cliente.status,
         cliente.folder_type,
         cliente.cliente,
+        cliente.codigo,
         cliente.ai_selected,
         cliente.target_chat_id,
         cliente.gemini_key,

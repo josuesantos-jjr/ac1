@@ -149,12 +149,12 @@ export async function POST(request) {
             const pastedInfoContent = await fs.readFile(pastedInfoPath, 'utf-8');
             const pastedInfo = JSON.parse(pastedInfoContent);
 
-            // Atualizar o campo CLIENTE e name para corresponder ao novo nome da pasta
+            // Atualizar o campo CLIENTE para corresponder ao novo nome da pasta
             pastedInfo.CLIENTE = actualTargetName;
-            pastedInfo.name = actualTargetName;
+            pastedInfo.codigo = actualTargetName; // código fixo = nome da pasta
 
             await fs.writeFile(pastedInfoPath, JSON.stringify(pastedInfo, null, 2), 'utf-8');
-            console.log(`[API client-operations] Campo CLIENTE atualizado para: ${actualTargetName} na pasta colada`);
+            console.log(`[API client-operations] Campos CLIENTE e codigo atualizados para: ${actualTargetName} na pasta colada`);
 
             // Sincronizar com banco
             const { syncManager } = await import('../../../database/sync.ts');
@@ -203,12 +203,12 @@ export async function POST(request) {
           const duplicatedInfoContent = await fs.readFile(duplicatedInfoPath, 'utf-8');
           const duplicatedInfo = JSON.parse(duplicatedInfoContent);
 
-          // Atualizar o campo CLIENTE e name para corresponder ao novo nome da pasta
+          // Atualizar o campo CLIENTE para corresponder ao novo nome da pasta
           duplicatedInfo.CLIENTE = newClientId;
-          duplicatedInfo.name = newClientId;
+          duplicatedInfo.codigo = newClientId; // código fixo = nome da pasta
 
           await fs.writeFile(duplicatedInfoPath, JSON.stringify(duplicatedInfo, null, 2), 'utf-8');
-          console.log(`[API client-operations] Campo CLIENTE atualizado para: ${newClientId} na pasta duplicada`);
+          console.log(`[API client-operations] Campos CLIENTE e codigo atualizados para: ${newClientId} na pasta duplicada`);
 
           // Sincronizar com banco
           const { syncManager } = await import('../../../database/sync.ts');

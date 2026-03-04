@@ -2,7 +2,7 @@
 import path from 'path';
 import fs from 'fs';
 import sqlite3 from 'sqlite3';
-import { DATABASE_SCHEMA, DATABASE_MAINTENANCE } from './schema.ts';
+import { DATABASE_SCHEMA, DATABASE_MAINTENANCE, DATABASE_MIGRATIONS } from './schema.ts';
 
 // Habilitar verbose mode para debugging
 sqlite3.verbose();
@@ -51,11 +51,48 @@ export class SQLiteDatabase {
         // Criar tabelas se não existirem
         this.db!.exec(DATABASE_SCHEMA);
 
+        // Executar migrações necessárias
+        this.runMigrations();
+
         console.log('✅ Banco de dados SQLite inicializado com sucesso');
       });
     } catch (error) {
       console.error('❌ Erro ao inicializar banco de dados:', error);
       throw error;
+    }
+  }
+
+  /**
+   * Executa migrações necessárias para atualizar o banco de dados
+   */
+  private runMigrations(): void {
+    try {
+      // Criar tabela de controle de migrações se não existir
+      this.db!.exec(`
+        CREATE TABLE IF NOT EXISTS schema_migrations (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          version INTEGER UNIQUE NOT NULL,
+          name TEXT NOT NULL,
+          applied_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+
+      // Verificar quais migrações já foram aplicadas
+      const appliedMigrations = this.db!.prepare('SELECT version FROM schema_migrations').all() as { version: number }[];
+      const appliedVersions = new Set(appliedMigrations.map(m => m.version));
+
+      // Executar migrações pendentes
+      for (const migration of DATABASE_MIGRATIONS) {
+        if (!appliedVersions.has(migration.version)) {
+          console.log(`[Migration] Executando migração v${migration.version}: ${migration.name}`);
+          this.db!.exec(migration.sql);
+          this.db!.prepare('INSERT INTO schema_migrations (version, name) VALUES (?, ?)').run(migration.version, migration.name);
+          console.log(`[Migration] ✅ Migração v${migration.version} concluída`);
+        }
+      }
+    } catch (error) {
+      console.error('❌ Erro ao executar migrações:', error);
+      // Não lança erro para não bloquear a inicialização
     }
   }
 

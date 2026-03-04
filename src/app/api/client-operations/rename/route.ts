@@ -3,7 +3,7 @@ import { getPasta } from '@/backend/disparo/disparo';
 import fs from 'fs';
 import path from 'path';
 import { syncManager } from '@/database/sync';
- 
+
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const { nomePastaCliente, newClientName } = await request.json() as { nomePastaCliente: string; newClientName: string };
@@ -17,23 +17,16 @@ export async function POST(request: Request): Promise<NextResponse> {
       return NextResponse.json({ error: 'Nomes de cliente não podem conter barras (/).' }, { status: 400 });
     }
 
+    // Apenas usa o caminho atual - NÃO renomeia a pasta!
     const clientPath = getPasta(nomePastaCliente);
-    const newClientPath = getPasta(newClientName);
     const infoClientePath = path.join(clientPath, 'config', 'infoCliente.json');
 
-    console.log(`[API client-operations/rename] Tentativa de renomear cliente: ${nomePastaCliente} -> ${newClientName}`);
-    console.log(`[API client-operations/rename] Caminhos: ${clientPath} -> ${newClientPath}`);
+    console.log(`[API client-operations/rename] Atualizando nome de exibição: ${nomePastaCliente} -> ${newClientName}`);
 
     // Verificar se o diretório do cliente existe
     if (!fs.existsSync(clientPath)) {
       console.error(`[API client-operations/rename] Diretório do cliente não encontrado: ${clientPath}`);
       return NextResponse.json({ error: `Cliente ${nomePastaCliente} não encontrado.` }, { status: 404 });
-    }
-
-    // Verificar se o novo nome já existe
-    if (fs.existsSync(newClientPath)) {
-      console.error(`[API client-operations/rename] Já existe um cliente com o nome ${newClientName}`);
-      return NextResponse.json({ error: `Já existe um cliente com o nome "${newClientName}".` }, { status: 400 });
     }
 
     // Verificar se o infoCliente.json existe
@@ -49,9 +42,13 @@ export async function POST(request: Request): Promise<NextResponse> {
 
       console.log(`[API client-operations/rename] Atualizando CLIENTE de "${infoClienteData.CLIENTE}" para "${newClientName}"`);
 
-      // Atualizar o campo CLIENTE e name
+      // Atualizar apenas o campo CLIENTE (nome de exibição) - NÃO renomeia a pasta!
       infoClienteData.CLIENTE = newClientName;
-      infoClienteData.name = newClientName;
+
+      // Garantir que o campo 'codigo' exista (código fixo = nome da pasta)
+      if (!infoClienteData.codigo) {
+        infoClienteData.codigo = nomePastaCliente;
+      }
 
       // Salvar o arquivo atualizado
       fs.writeFileSync(infoClientePath, JSON.stringify(infoClienteData, null, 2), 'utf-8');
@@ -68,12 +65,12 @@ export async function POST(request: Request): Promise<NextResponse> {
         // Continua mesmo se SQLite falhar
       }
 
-      console.log(`[API client-operations/rename] ✅ Cliente ${nomePastaCliente} renomeado com sucesso para ${newClientName}`);
+      console.log(`[API client-operations/rename] ✅ Nome de exibição do cliente ${nomePastaCliente} atualizado para ${newClientName}`);
 
       return NextResponse.json({
-        message: 'Cliente renomeado com sucesso',
+        message: 'Nome de exibição atualizado com sucesso',
         newClientName: newClientName,
-        nomePastaCliente: nomePastaCliente
+        codigo: nomePastaCliente // Retorna o código fixo
       }, { status: 200 });
     } catch (error) {
       console.error('[API client-operations/rename] Erro ao atualizar infoCliente.json:', error);

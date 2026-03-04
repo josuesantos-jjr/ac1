@@ -63,7 +63,7 @@ export class MigrationUtils {
 
       const cliente: Cliente = {
         client_id: clientId,
-        name: configData.name || configData.CLIENTE || clientName,
+        name: configData.CLIENTE || clientName,
         status: configData.STATUS || 'Ativo',
         cliente: configData.CLIENTE,
         ai_selected: configData.AI_SELECTED,

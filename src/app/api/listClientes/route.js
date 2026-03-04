@@ -139,6 +139,7 @@ export async function POST() {
 
           const clienteInfo = {
             id: clienteNome, // clientId direto (nome da pasta numérica)
+            codigo: infoCliente.codigo || clienteNome, // código fixo (nome da pasta)
             name: infoCliente.CLIENTE || clienteNome, // nome de exibição é o CLIENTE do JSON
             path: clienteNome, // caminho direto (nome da pasta)
             type: categoriaCorreta === 'ativos' ? 'active' : categoriaCorreta === 'cancelados' ? 'canceled' : 'model',

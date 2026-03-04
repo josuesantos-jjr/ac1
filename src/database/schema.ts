@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS clientes (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   -- Campos do infoCliente.json
   cliente TEXT,
+  codigo TEXT, -- código fixo do cliente (nome da pasta)
   ai_selected TEXT,
   target_chat_id TEXT,
   gemini_key TEXT,
@@ -230,3 +231,13 @@ export const DATABASE_MAINTENANCE = {
     VACUUM INTO ?;
   `
 };
+
+// Migrações necessárias para atualizar bancos existentes
+export const DATABASE_MIGRATIONS = [
+  // Migração 1: Adicionar coluna codigo na tabela clientes
+  {
+    version: 1,
+    name: 'add_codigo_column',
+    sql: `ALTER TABLE clientes ADD COLUMN codigo TEXT;`
+  }
+];

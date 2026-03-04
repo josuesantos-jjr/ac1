@@ -150,14 +150,15 @@ export class SyncManager {
       if (data.infoCliente) {
         const cliente: Cliente = {
           client_id: clientId,
-          name: data.infoCliente.name || data.infoCliente.CLIENTE,
+          name: data.infoCliente.CLIENTE,
           status: data.infoCliente.STATUS || 'ativo', // Padronizar para minúsculo
           folder_type: undefined, // Removido - não usamos mais subpastas
           cliente: data.infoCliente.CLIENTE,
           ai_selected: data.infoCliente.AI_SELECTED,
           target_chat_id: data.infoCliente.TARGET_CHAT_ID,
           gemini_key: data.infoCliente.GEMINI_KEY,
-          groq_key: data.infoCliente.GROQ_KEY
+          groq_key: data.infoCliente.GROQ_KEY,
+          codigo: data.infoCliente.codigo || clientId // código fixo
         };
         clienteCRUD.upsert(cliente);
       }
