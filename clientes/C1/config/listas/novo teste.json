@@ -1,0 +1,22 @@
+{
+  "id": "jak3bqcap1yxyp997w6m",
+  "nome": "novo teste",
+  "mensagem": "Olá {nome}, tudo bem? \nVocê viu que o Portal dos Ipês esta com desconto de *R$ 50.000,00* de DESCONTO?\nPosso te passar os detalhes do Portal dos Ipês por aqui?",
+  "media": [],
+  "ativo": false,
+  "tags": [],
+  "contatos": [
+    {
+      "nome": "Josué",
+      "telefone": "5519989808901",
+      "disparo": "sim",
+      "data_1_contato": "20/10/2025 06:17:21",
+      "sobrenome": "",
+      "mensagem": "Olá Josué, tudo bem? \nVocê viu que o Portal dos Ipês esta com desconto de *R$ 50.000,00* de DESCONTO?\nPosso te passar os detalhes do Portal dos Ipês por aqui?"
+    }
+  ],
+  "regras": {},
+  "attachmentPath": "",
+  "sendAttachment": true,
+  "selectedMediaPath": null
+}

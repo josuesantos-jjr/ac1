@@ -1,0 +1,1356 @@
+{
+  "2025": {
+    "10": {
+      "20": [
+        {
+          "data": "2025-10-20T09:17:21.216Z",
+          "numeroTelefone": "5519989808901",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:26:29.279Z",
+          "numeroTelefone": "5519991054436",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 2,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:28:27.482Z",
+          "numeroTelefone": "5519997293147",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 3,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:30:15.315Z",
+          "numeroTelefone": "5519982038116",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 4,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:31:47.605Z",
+          "numeroTelefone": "5511934755662",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 5,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:32:12.631Z",
+          "numeroTelefone": "5511962529054",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:14.598Z",
+          "numeroTelefone": "5519989855268",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:16.787Z",
+          "numeroTelefone": "5519992310350",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:19.364Z",
+          "numeroTelefone": "5519994769075",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:22.654Z",
+          "numeroTelefone": "5519989240538",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:24.695Z",
+          "numeroTelefone": "5519994475090",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:26.930Z",
+          "numeroTelefone": "5519989440098",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:29.732Z",
+          "numeroTelefone": "5519997015284",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:32:32.437Z",
+          "numeroTelefone": "5519999457154",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:02.427Z",
+          "numeroTelefone": "5519983098420",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:04.870Z",
+          "numeroTelefone": "5519991549006",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:07.076Z",
+          "numeroTelefone": "5519997195759",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:09.008Z",
+          "numeroTelefone": "5511947203905",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:13.013Z",
+          "numeroTelefone": "5519993890758",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:15.296Z",
+          "numeroTelefone": "5519996280660",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:17.361Z",
+          "numeroTelefone": "5519991330769",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:19.247Z",
+          "numeroTelefone": "5519995468055",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:21.590Z",
+          "numeroTelefone": "5519995632355",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:23.949Z",
+          "numeroTelefone": "5519981564926",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:26.500Z",
+          "numeroTelefone": "5519991716107",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:29.416Z",
+          "numeroTelefone": "5519994017957",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:35.444Z",
+          "numeroTelefone": "5519994236090",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:42.269Z",
+          "numeroTelefone": "5519994553074",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:44.633Z",
+          "numeroTelefone": "5519992196947",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:48.596Z",
+          "numeroTelefone": "5519993686730",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:52.298Z",
+          "numeroTelefone": "5519994162582",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:33:52.352Z",
+          "numeroTelefone": "5519993686730",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 6,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:34:06.893Z",
+          "numeroTelefone": "5515988224076",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:34:16.451Z",
+          "numeroTelefone": "5519987372666",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:34:20.892Z",
+          "numeroTelefone": "5519994984136",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:34:33.405Z",
+          "numeroTelefone": "5519998497280",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:34:49.627Z",
+          "numeroTelefone": "5519999134741",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:34:58.941Z",
+          "numeroTelefone": "5519982807669",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:32.781Z",
+          "numeroTelefone": "5519995729451",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:40.114Z",
+          "numeroTelefone": "5519998040509",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:43.082Z",
+          "numeroTelefone": "5519982775605",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:45.272Z",
+          "numeroTelefone": "5519995599993",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:47.754Z",
+          "numeroTelefone": "5519998065815",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:50.696Z",
+          "numeroTelefone": "5511949582128",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:35:53.511Z",
+          "numeroTelefone": "5519988043009",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:36:16.084Z",
+          "numeroTelefone": "5519994162582",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 7,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:36:27.790Z",
+          "numeroTelefone": "5519988536856",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:36:35.397Z",
+          "numeroTelefone": "5519971094818",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:36:53.661Z",
+          "numeroTelefone": "5519983241624",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:01.113Z",
+          "numeroTelefone": "5519999617970",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:07.400Z",
+          "numeroTelefone": "5519999651610",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:09.280Z",
+          "numeroTelefone": "5519984421275",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:16.352Z",
+          "numeroTelefone": "5519989857394",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:22.553Z",
+          "numeroTelefone": "5519991648515",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:24.900Z",
+          "numeroTelefone": "5534992849881",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:27.060Z",
+          "numeroTelefone": "5519982129605",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:33.481Z",
+          "numeroTelefone": "5511978058626",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:35.953Z",
+          "numeroTelefone": "5519988365070",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:42.761Z",
+          "numeroTelefone": "5519995341573",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:49.243Z",
+          "numeroTelefone": "5519988393145",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:51.665Z",
+          "numeroTelefone": "5519993631412",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:37:58.451Z",
+          "numeroTelefone": "5519997738166",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:00.233Z",
+          "numeroTelefone": "5519991455600",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:02.287Z",
+          "numeroTelefone": "5519997261270",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:12.896Z",
+          "numeroTelefone": "5519992196947",
+          "status": true,
+          "etapaAquecimento": 15,
+          "quantidadeDisparada": 8,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-20T14:38:15.271Z",
+          "numeroTelefone": "5519997767260",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:29.983Z",
+          "numeroTelefone": "5519997767260",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:30.179Z",
+          "numeroTelefone": "5519981648884",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:42.681Z",
+          "numeroTelefone": "5519981648884",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:42.865Z",
+          "numeroTelefone": "5519984595766",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:43.284Z",
+          "numeroTelefone": "5519984595766",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:38:57.937Z",
+          "numeroTelefone": "5519992009340",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:13.356Z",
+          "numeroTelefone": "5519992009340",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:16.034Z",
+          "numeroTelefone": "5519993500334",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:28.171Z",
+          "numeroTelefone": "5511972399155",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:33.817Z",
+          "numeroTelefone": "5519971253996",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:36.489Z",
+          "numeroTelefone": "5519993500334",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:41.269Z",
+          "numeroTelefone": "5519999537365",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-20T14:39:45.521Z",
+          "numeroTelefone": "5519981525752",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 1000,
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        }
+      ],
+      "21": [
+        {
+          "data": "2025-10-21T12:02:26.242Z",
+          "numeroTelefone": "5519993894710",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-21T12:02:36.156Z",
+          "numeroTelefone": "5519994032781",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-21T12:53:13.030Z",
+          "numeroTelefone": "5518981909438",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T12:54:16.106Z",
+          "numeroTelefone": "5519988588477",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 2,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T12:57:32.944Z",
+          "numeroTelefone": "5519983216593",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 3,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T12:59:35.036Z",
+          "numeroTelefone": "5519997225164",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 4,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T13:00:50.185Z",
+          "numeroTelefone": "5519997481153",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 5,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T13:04:18.516Z",
+          "numeroTelefone": "558198747192",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 6,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T13:08:22.811Z",
+          "numeroTelefone": "5519997784461",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 7,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:12:26.059Z",
+          "numeroTelefone": "5511911830522",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 8,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:15:50.966Z",
+          "numeroTelefone": "5511948727958",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 9,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:18:15.327Z",
+          "numeroTelefone": "5519992267946",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 10,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:20:53.458Z",
+          "numeroTelefone": "5519995346965",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 11,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:23:42.654Z",
+          "numeroTelefone": "5519983444166",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 12,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:26:58.285Z",
+          "numeroTelefone": "5519991697617",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 13,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:31:07.709Z",
+          "numeroTelefone": "5519995129439",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 14,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T14:32:11.876Z",
+          "numeroTelefone": "5519998218494",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 15,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T15:35:29.756Z",
+          "numeroTelefone": "5519999929415",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 16,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T15:39:20.140Z",
+          "numeroTelefone": "5519993894757",
+          "status": true,
+          "etapaAquecimento": 30,
+          "quantidadeDisparada": 17,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:27:44.993Z",
+          "numeroTelefone": "5519993894757",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 18,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:29:56.132Z",
+          "numeroTelefone": "5519994371915",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 19,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:33:42.431Z",
+          "numeroTelefone": "5519993991240",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 20,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:38:01.873Z",
+          "numeroTelefone": "5519997674075",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 21,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:41:31.888Z",
+          "numeroTelefone": "5519987711764",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 22,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:43:33.708Z",
+          "numeroTelefone": "5519971547477",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 23,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:45:28.862Z",
+          "numeroTelefone": "5519988675879",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 24,
+          "limiteDiario": 100
+        },
+        {
+          "data": "2025-10-21T19:56:43.325Z",
+          "numeroTelefone": "5519989607439",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 25,
+          "limiteDiario": 100
+        }
+      ],
+      "22": [
+        {
+          "data": "2025-10-22T17:39:21.381Z",
+          "numeroTelefone": "5519971414606",
+          "status": true,
+          "etapaAquecimento": 20,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 100
+        }
+      ],
+      "23": [
+        {
+          "data": "2025-10-23T09:35:50.299Z",
+          "numeroTelefone": "5519987729881",
+          "status": true,
+          "etapaAquecimento": 2,
+          "quantidadeDisparada": 1,
+          "limiteDiario": 5
+        },
+        {
+          "data": "2025-10-23T09:39:45.634Z",
+          "numeroTelefone": "5519993538470",
+          "status": true,
+          "etapaAquecimento": 2,
+          "quantidadeDisparada": 2,
+          "limiteDiario": 5
+        },
+        {
+          "data": "2025-10-23T09:42:06.479Z",
+          "numeroTelefone": "5519989808901",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:42:31.142Z",
+          "numeroTelefone": "5518981909438",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:42:40.270Z",
+          "numeroTelefone": "5519991981166",
+          "status": true,
+          "etapaAquecimento": 2,
+          "quantidadeDisparada": 3,
+          "limiteDiario": 5
+        },
+        {
+          "data": "2025-10-23T09:43:00.161Z",
+          "numeroTelefone": "5519983216593",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:43:26.764Z",
+          "numeroTelefone": "5519988588477",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:43:55.945Z",
+          "numeroTelefone": "5519997225164",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:44:19.805Z",
+          "numeroTelefone": "5519987124501",
+          "status": true,
+          "etapaAquecimento": 2,
+          "quantidadeDisparada": 4,
+          "limiteDiario": 5
+        },
+        {
+          "data": "2025-10-23T09:44:24.840Z",
+          "numeroTelefone": "5519997481153",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:44:48.055Z",
+          "numeroTelefone": "558198747192",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:45:11.160Z",
+          "numeroTelefone": "5519997784461",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:45:31.544Z",
+          "numeroTelefone": "5519992566223",
+          "status": true,
+          "etapaAquecimento": 2,
+          "quantidadeDisparada": 5,
+          "limiteDiario": 5
+        },
+        {
+          "data": "2025-10-23T09:45:41.064Z",
+          "numeroTelefone": "5511911830522",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:46:19.250Z",
+          "numeroTelefone": "5511948727958",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:46:49.395Z",
+          "numeroTelefone": "5519983444166",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:47:29.905Z",
+          "numeroTelefone": "5519992267946",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:48:11.855Z",
+          "numeroTelefone": "5519995346965",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:48:18.048Z",
+          "numeroTelefone": "5519995346965",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:48:43.417Z",
+          "numeroTelefone": "5519991697617",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:48:47.188Z",
+          "numeroTelefone": "5519991697617",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:49:13.042Z",
+          "numeroTelefone": "5519995129439",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:49:17.367Z",
+          "numeroTelefone": "5519995129439",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:49:44.497Z",
+          "numeroTelefone": "5519998218494",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:49:48.580Z",
+          "numeroTelefone": "5519998218494",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:50:13.005Z",
+          "numeroTelefone": "5519999929415",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:50:18.298Z",
+          "numeroTelefone": "5519999929415",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:50:40.865Z",
+          "numeroTelefone": "5519994371915",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:50:43.845Z",
+          "numeroTelefone": "5519994371915",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:51:09.798Z",
+          "numeroTelefone": "5519993991240",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:51:15.137Z",
+          "numeroTelefone": "5519993991240",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:51:44.161Z",
+          "numeroTelefone": "5519971547477",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:51:47.244Z",
+          "numeroTelefone": "5519971547477",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:52:05.437Z",
+          "numeroTelefone": "5519989607439",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        },
+        {
+          "data": "2025-10-23T09:52:08.501Z",
+          "numeroTelefone": "5519989607439",
+          "status": true,
+          "etapaAquecimento": 0,
+          "quantidadeDisparada": 1,
+          "limiteDiario": "100",
+          "tipo": "followup",
+          "listaNome": "Follow-up"
+        }
+      ]
+    }
+  }
+}

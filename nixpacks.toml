@@ -1,0 +1,38 @@
+[variables]
+    NIXPACKS_NODE_VERSION = '24'
+    NIXPACKS_BUN_VERSION = 'latest'
+
+[phases.setup]
+    # Mantendo as dependências do Chromium e adicionando as necessárias para o PM2
+    aptPkgs = [
+        'chromium',
+        'libnss3',
+        'libatk1.0-0',
+        'libatk-bridge2.0-0',
+        'libcups2',
+        'libgbm1',
+        'libasound2t64',
+        'libpangocairo-1.0-0',
+        'libxss1',
+        'libgtk-3-0',
+        'libxshmfence1',
+        'libglu1-mesa',
+        'curl',
+        'wget'
+    ]
+
+[phases.install]
+    # Instala as dependências do projeto e o PM2 globalmente dentro do container
+    cmds = [
+        'bun install',
+        'bun add -g pm2',
+        'export PATH=$PATH:/root/.bun/bin'
+    ]
+
+[phases.build]
+    cmds = ['bun run build']
+
+[start]
+    # O comando start agora encontrará o pm2 no PATH
+    # Importante: no Docker, usamos --no-daemon para o container não fechar imediatamente
+    cmd = 'bun run start'

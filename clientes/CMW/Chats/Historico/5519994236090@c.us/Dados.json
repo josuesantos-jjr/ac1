@@ -1,0 +1,38 @@
+{
+  "name": "Não identificado",
+  "sobrenome": "",
+  "telefone": "5519994236090",
+  "tags": [
+    "interesse-apartamento",
+    "cidade-santa-barbara",
+    "renda-familiar-mensal",
+    "passou-triagem-parcial"
+  ],
+  "listaNome": null,
+  "lead": "não",
+  "data_ultima_mensagem_recebida": "2025-11-12T16:29:33.934Z",
+  "nome": null,
+  "interesse": "Buscando apartamento em Santa Bárbara",
+  "leadScore": 7,
+  "etapaFunil": "Qualificação",
+  "isLeadQualificado": false,
+  "detalhes_agendamento": [
+    {
+      "agendamento_identificado": false,
+      "tipo_agendamento": null,
+      "data_agendada": null,
+      "horario_agendado": null,
+      "agendamento_notificado": [
+        {
+          "chatid": false,
+          "TARGET_CHATID": false
+        }
+      ]
+    }
+  ],
+  "resumoParaAtendente": "Cliente está buscando apartamento em Santa Bárbara e informou renda familiar mensal de R$ 6.009. Ainda precisa fornecer informações sobre FGTS para qualificação completa.",
+  "precisaAtendimentoHumano": false,
+  "data_ultima_analise": "2025-11-12T16:29:53.715Z",
+  "ultima_notificacao_atendimento_humano": "2025-11-12T16:27:42.401Z",
+  "data_ultima_mensagem_enviada": "2025-11-12T16:30:26.220Z"
+}

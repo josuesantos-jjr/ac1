@@ -1,0 +1,61 @@
+#!/bin/bash
+set -e  # Para no primeiro erro
+
+echo "🚀 Iniciando deploy $(date)"
+
+# Criar diretório de logs se não existir
+mkdir -p logs/deploy
+
+# Função de log
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a logs/deploy/deploy-$(date +%Y%m%d).log
+}
+
+# Função de rollback
+rollback() {
+    log "❌ Erro detectado - fazendo rollback"
+    git reset --hard HEAD~1 2>/dev/null || git reset --hard origin/main~1
+    npm install --production
+    npm run build
+    pm2 restart front
+    log "🔄 Rollback concluído"
+    exit 1
+}
+
+# Trap para rollback em caso de erro
+trap rollback ERR
+
+log "📦 Fazendo backup de arquivos locais"
+
+# Backup arquivos locais (ignorar erros se diretórios não existirem)
+tar -czf "backup-$(date +%Y%m%d-%H%M%S).tar.gz" dados/ clientes/ uploads/ 2>/dev/null || log "⚠️ Alguns diretórios de backup não encontrados (normal na primeira execução)"
+
+log "🔄 Atualizando código do repositório"
+
+# Git operations seguras
+git fetch origin
+git reset --hard HEAD  # Limpa mudanças locais não committadas
+git pull origin main --allow-unrelated-histories
+
+log "📦 Instalando dependências"
+npm ci --production
+
+log "🔨 Fazendo build da aplicação"
+npm run build
+
+log "🔄 Reiniciando aplicação com PM2"
+pm2 restart front || pm2 start src/start.js --name front
+
+log "🏥 Verificando saúde da aplicação"
+sleep 15  # Tempo para aplicação subir
+
+# Health check
+if curl -f --max-time 30 http://localhost:3000/api/health > /dev/null 2>&1; then
+    log "✅ Deploy concluído com sucesso"
+    log "🧹 Limpando backups antigos (mantendo últimos 5)"
+    ls -t backup-*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm -f
+    exit 0
+else
+    log "❌ Falha no health check"
+    rollback
+fi

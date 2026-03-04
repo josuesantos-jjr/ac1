@@ -1,0 +1,20 @@
+📁 ESTRUTURA SIMULADA DO GOOGLE DRIVE
+=====================================
+
+Backups_AC-PC/
+├── 2025/
+│   ├── 10/
+│   │   ├── backup-18-10-2025-00-00-15.zip
+│   │   ├── backup-19-10-2025-00-00-12.zip
+│   │   └── teste-google-drive-2025-10-18.txt
+│   └── 11/
+└── 2024/
+    └── 12/
+
+⏰ Esta estrutura será criada automaticamente quando o sistema estiver
+   totalmente configurado com OAuth2.
+
+📧 Conta: ac.sistema.bk@gmail.com
+📁 Pasta ID: 1FtJ_xhnZa5uREcRN_dO0WJlR_6rOaWe_
+
+=====================================

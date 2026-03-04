@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-03-04T16:28:46.688Z",
+  "rule": "cache_ineffective",
+  "severity": "low",
+  "message": "💾 ALERTA: Taxa de cache abaixo de 20%",
+  "metrics": {
+    "timestamp": 1772641726682,
+    "uptime": 60013,
+    "totalRequests": 0,
+    "successRate": 0,
+    "averageResponseTime": 0,
+    "errorRate": 100,
+    "queueLength": 0,
+    "cacheHitRate": 0,
+    "apiUsage": {
+      "googleGemini": {
+        "usage": 45,
+        "limit": 60
+      },
+      "groq": {
+        "usage": 30,
+        "limit": 120
+      }
+    },
+    "recentErrors": []
+  }
+}
