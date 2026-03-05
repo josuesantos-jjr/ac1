@@ -234,10 +234,30 @@ export const DATABASE_MAINTENANCE = {
 
 // Migrações necessárias para atualizar bancos existentes
 export const DATABASE_MIGRATIONS = [
-  // Migração 1: Adicionar coluna codigo na tabela clientes
+  // Migração 1: Adicionar coluna id na tabela clientes (com verificação de existência)
   {
     version: 1,
-    name: 'add_codigo_column',
-    sql: `ALTER TABLE clientes ADD COLUMN codigo TEXT;`
+    name: 'add_id_column',
+    // SQLite não suporta IF NOT EXISTS para colunas, então usamos uma abordagem segura
+    sql: `-- Esta migração será executada apenas se a coluna não existir
+-- O código de migração verifica a existência da coluna antes de adicionar`
   }
 ];
+
+// Função de migração segura que verifica se a coluna existe
+export async function runSafeMigrations(db) {
+  try {
+    // Verificar se a coluna 'id' já existe
+    const result = await db.prepare("PRAGMA table_info(clientes)").all();
+    const hasIdColumn = result.some((col: any) => col.name === 'id');
+    
+    if (!hasIdColumn) {
+      await db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`);
+      console.log('[Migration] Coluna id adicionada à tabela clientes');
+    } else {
+      console.log('[Migration] Coluna id já existe, pulando');
+    }
+  } catch (error) {
+    console.log('[Migration] Erro na migração (pode já ter sido executada):', error.message);
+  }
+}

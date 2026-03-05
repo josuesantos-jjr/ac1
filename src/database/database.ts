@@ -2,7 +2,7 @@
 import path from 'path';
 import fs from 'fs';
 import sqlite3 from 'sqlite3';
-import { DATABASE_SCHEMA, DATABASE_MAINTENANCE, DATABASE_MIGRATIONS } from './schema.ts';
+import { DATABASE_SCHEMA, DATABASE_MAINTENANCE, DATABASE_MIGRATIONS, runSafeMigrations } from './schema.ts';
 
 // Habilitar verbose mode para debugging
 sqlite3.verbose();
@@ -51,8 +51,8 @@ export class SQLiteDatabase {
         // Criar tabelas se não existirem
         this.db!.exec(DATABASE_SCHEMA);
 
-        // Executar migrações necessárias
-        this.runMigrations();
+        // Executar migrações necessárias (versão segura)
+        runSafeMigrations(this.db!);
 
         console.log('✅ Banco de dados SQLite inicializado com sucesso');
       });
