@@ -439,7 +439,7 @@ export default function Dashboard() {
             <DroppableSection
               type="modelos"
               title="Modelos"
-              clientes={modelosList.map(modeloName => ({ id: modeloName, name: modeloName, folderType: 'modelos', status: 'modelo' }))}
+              clientes={modelosList.map(modeloName => ({ id: modeloName, CLIENTE: modeloName, folderType: 'modelos', status: 'modelo' }))}
               onEditarCliente={handleEditarCliente}
               onCopy={handleCopyClient}
               onPaste={handlePasteClient}

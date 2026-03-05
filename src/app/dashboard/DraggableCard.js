@@ -182,7 +182,7 @@ export default function DraggableCard({
       const isOnline = pm2Status === 'online';
       const action = isOnline ? 'stop' : 'start';
       
-      console.log(`[DraggableCard] Status PM2 para ${cliente.name}:`, {
+      console.log(`[DraggableCard] Status PM2 para ${cliente.CLIENTE}:`, {
         pm2Status: pm2Status,
         action,
         clientName: cliente.name,
@@ -197,7 +197,7 @@ export default function DraggableCard({
       setPm2Status(isOnline ? 'not_found' : 'online');
     } catch (error) {
       console.error('[DraggableCard] Erro ao iniciar/parar cliente:', error);
-      alert(`Erro ao processar cliente ${cliente.name}: ${error.message}`);
+      alert(`Erro ao processar cliente ${cliente.CLIENTE}: ${error.message}`);
     }
   };
 
@@ -209,7 +209,7 @@ export default function DraggableCard({
         className={`${styles.card} ${styles[cliente.folderType]}`}
       >
         <div className={styles.cardHeader}>
-          <h2>{cliente.name}</h2>
+          <h2>{cliente.CLIENTE}</h2>
           <div className={styles.cardActions}>
             <span
               className={`${styles.statusBadge} ${styles[sessionStatusDisplay.toLowerCase() === 'inchat' ? 'statusActive' : 'statusInactive']}`}
@@ -217,13 +217,13 @@ export default function DraggableCard({
               {sessionStatusDisplay}
             </span>
             <OptionsMenu
-              clientName={cliente.name}
+              clientName={cliente.CLIENTE}
               clientType={cliente.folderType}
-              onCopy={() => onCopy(cliente.folderType, cliente.name)}
-              onPaste={() => onPaste(cliente.folderType, cliente.name)}
-              onDuplicate={() => onDuplicate(cliente.folderType, cliente.name)}
+              onCopy={() => onCopy(cliente.folderType, cliente.id)}
+              onPaste={() => onPaste(cliente.folderType, cliente.id)}
+              onDuplicate={() => onDuplicate(cliente.folderType, cliente.id)}
               onRename={onRename}
-              onDownloadFolder={() => onDownloadClientFolder(cliente.name)} // Passa apenas o nome do cliente
+              onDownloadFolder={() => onDownloadClientFolder(cliente.id)} // Passa apenas o nome do cliente
               existingClients={existingClients}
             />
           </div>

@@ -3,16 +3,17 @@ import pm2 from 'pm2';
 import path from 'path';
 import fs from 'fs';
 
-// Função para obter o nome real do cliente do infoCliente.json
-function getClientName(clientId) {
+// Função para obter o id do cliente do infoCliente.json
+function getClientId(clientId) {
   try {
     const infoClientePath = path.join(process.cwd(), 'clientes', clientId, 'config', 'infoCliente.json');
     if (fs.existsSync(infoClientePath)) {
       const infoClienteData = JSON.parse(fs.readFileSync(infoClientePath, 'utf-8'));
-      return infoClienteData.CLIENTE || clientId; // Fallback para clientId se CLIENTE não existir
+      // Usa o campo 'id' se existir, senão usa o clientId passado
+      return infoClienteData.id || clientId;
     }
   } catch (error) {
-    console.warn(`Erro ao ler CLIENTE para ${clientId}:`, error.message);
+    console.warn(`Erro ao ler id para ${clientId}:`, error.message);
   }
   return clientId; // Fallback
 }
@@ -75,8 +76,8 @@ export async function POST(request) {
     clientId = body.clientId;
     const action = body.action;
 
-    // Obtém o nome real do cliente para usar como nome do processo PM2
-    const processName = getClientName(clientId);
+    // Usa o clientId diretamente como nome do processo (é o id fixo)
+    const processName = clientId;
 
     console.log(`[API /api/client-control] Received - clientId: ${clientId}, processName: ${processName}, action: ${action}`);
 

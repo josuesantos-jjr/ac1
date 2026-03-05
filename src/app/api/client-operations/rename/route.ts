@@ -45,10 +45,14 @@ export async function POST(request: Request): Promise<NextResponse> {
       // Atualizar apenas o campo CLIENTE (nome de exibição) - NÃO renomeia a pasta!
       infoClienteData.CLIENTE = newClientName;
 
-      // Garantir que o campo 'codigo' exista (código fixo = nome da pasta)
-      if (!infoClienteData.codigo) {
-        infoClienteData.codigo = nomePastaCliente;
+      // Garantir que o campo 'id' exista (id fixo = nome da pasta)
+      if (!infoClienteData.id) {
+        infoClienteData.id = nomePastaCliente;
       }
+
+      // Remover campos antigos se existirem
+      delete infoClienteData.codigo;
+      delete infoClienteData.name;
 
       // Salvar o arquivo atualizado
       fs.writeFileSync(infoClientePath, JSON.stringify(infoClienteData, null, 2), 'utf-8');

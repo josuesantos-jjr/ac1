@@ -35,9 +35,9 @@ export default function DroppableSection({
               cliente={cliente}
               onEditarCliente={onEditarCliente}
               onIniciarCliente={(clientName, folderType, action) => onIniciarCliente(clientName, folderType, action)}
-              onCopy={() => onCopy(type, cliente.name)}
-              onPaste={() => onPaste(type, cliente.name)}
-              onDuplicate={() => onDuplicate(type, cliente.name)}
+              onCopy={() => onCopy(type, cliente.id)}
+              onPaste={() => onPaste(type, cliente.id)}
+              onDuplicate={() => onDuplicate(type, cliente.id)}
               onRename={(newName) => onRename(type, cliente.id, newName)}
               onAbrirCrmModal={() => onAbrirCrmModal(cliente.id)} // Nova prop
               onAbrirRelatorioCliente={() => onAbrirRelatorioCliente(cliente.id)} // Nova prop

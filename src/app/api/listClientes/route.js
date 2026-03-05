@@ -138,9 +138,8 @@ export async function POST() {
           const categoriaCorreta = determineCategory(infoCliente.STATUS);
 
           const clienteInfo = {
-            id: clienteNome, // clientId direto (nome da pasta numérica)
-            codigo: infoCliente.codigo || clienteNome, // código fixo (nome da pasta)
-            name: infoCliente.CLIENTE || clienteNome, // nome de exibição é o CLIENTE do JSON
+            id: infoCliente.id || clienteNome, // id fixo do cliente (do JSON ou nome da pasta)
+            CLIENTE: infoCliente.CLIENTE || clienteNome, // nome de exibição
             path: clienteNome, // caminho direto (nome da pasta)
             type: categoriaCorreta === 'ativos' ? 'active' : categoriaCorreta === 'cancelados' ? 'canceled' : 'model',
             folderType: categoriaCorreta, // categoria baseada no STATUS

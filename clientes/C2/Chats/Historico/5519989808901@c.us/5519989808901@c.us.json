@@ -1,0 +1,278 @@
+[
+  {
+    "date": "10/11/2025",
+    "time": "08:48:39",
+    "type": "User",
+    "message": "Bom dia"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:49:17",
+    "type": "IA",
+    "message": "Oi, tudo bem?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:49:22",
+    "type": "IA",
+    "message": "Que ótimo que você está procurando um apartamento!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:49:26",
+    "type": "IA",
+    "message": "Eu tenho ótimas oportunidades."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:49:30",
+    "type": "IA",
+    "message": "Você ainda está pensando em comprar?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:49:59",
+    "type": "User",
+    "message": "Sim"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:50:31",
+    "type": "IA",
+    "message": "Que legal!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:50:36",
+    "type": "IA",
+    "message": "Fico feliz em saber que você ainda está buscando seu novo lar."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:50:42",
+    "type": "IA",
+    "message": "Para te ajudar a encontrar o lugar perfeito, me conta: qual cidade você tem em mente para morar?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:51:04",
+    "type": "User",
+    "message": "Americana"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:51:46",
+    "type": "IA",
+    "message": "Que demais que você está pensando em Americana!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:51:50",
+    "type": "IA",
+    "message": "É uma cidade com muitas opções legais."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:51:55",
+    "type": "IA",
+    "message": "Para que eu possa te mostrar os imóveis que mais combinam com você, me conta: qual a sua renda familiar mensal aproximada?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:52:01",
+    "type": "IA",
+    "message": "Assim a gente já direciona para as melhores oportunidades!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:52:51",
+    "type": "User",
+    "message": "Entre 4 a 5mil"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:53:32",
+    "type": "IA",
+    "message": "Que ótimo que você está buscando em Americana! Com essa renda familiar entre 4 a 5 mil, o"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:53:33",
+    "type": "IA",
+    "message": "Village"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:53:38",
+    "type": "IA",
+    "message": "é realmente uma opção que bate super bem. Ele tem apartamentos de 50m² a 54m², com 2 quartos e aquele lazer que a gente adora: piscina, academia e espaço pet para os bichinhos! E o melhor: a entrada é parcelada em 60x e a documentação é por nossa conta!\n\nO que acha de marcarmos uma visita para você conhecer o decorado? Tenho certeza que você vai adorar sentir o espaço de perto e tirar todas as suas dúvidas com um dos nossos especialistas."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:55:25",
+    "type": "User",
+    "message": "Tem mais opções?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:56:07",
+    "type": "IA",
+    "message": "Que legal que você quer ver mais opções! Fico feliz em te ajudar a encontrar o lugar perfeito em Americana.\n\nPensando na sua renda familiar entre R$ 4.000 e R$ 5.000, temos outras opções que se encaixam muito bem:"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:56:13",
+    "type": "IA",
+    "message": "O **Pura Americana** é uma ótima pedida! São casas de 60m² com 2 quartos (sendo 1 suíte) e 2 vagas de garagem. Ele tem lazer completo com piscina, academia e campo de areia. A entrada é parcelada em 60x e a documentação é grátis.\nO **Iraema** também pode ser interessante. Ele tem apartamentos de 49m² com 2 quartos e lazer completo, com piscina, espaço pet e salão de festas. A entrada é parcelada em 30x e a documentação também é por nossa conta."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:56:18",
+    "type": "IA",
+    "message": "Entre o Village, Pura Americana e Iraema, algum desses te chamou mais a atenção? Assim já podemos focar nas melhores condições para você!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:57:00",
+    "type": "User",
+    "message": "Pura"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:57:40",
+    "type": "IA",
+    "message": "Que bom que o Pura Americana chamou sua atenção! Ele é uma excelente opção para você."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:57:45",
+    "type": "IA",
+    "message": "Pura Americana\n- Localizado no Jardim Pacaembu (Proximo Davita de Americana)\n- Previsão de Entrega Novembro de 2026\n- Casas de 60m² com 02 quartos sendo 01 suite (2 vagas de garagem)\n- Lazer completo com: Piscina, Academia, Campo de Areia, Salão de Festas e muitos mais\n- Entrada Parcelada em 60x e Documentação Gratis"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "08:57:51",
+    "type": "IA",
+    "message": "Para te ajudar a sentir ainda mais o Pura Americana e tirar todas as suas dúvidas, o que acha de agendarmos uma visita para conhecer o decorado? Assim, você pode ter uma experiência completa e conversar com um dos nossos especialistas. Que dia e horário ficaria bom para você?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "09:09:54",
+    "type": "User",
+    "message": "Ah, legal, gostei. Eu acho que pode ser na na quarta-feira de manhã. Você acha que dá?"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "09:10:44",
+    "type": "IA",
+    "message": "Que maravilha que você gostou do Pura Americana!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "09:10:48",
+    "type": "IA",
+    "message": "Combinado para quarta-feira de manhã, sim!"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "09:10:49",
+    "type": "IA",
+    "message": "\n\n"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "09:10:55",
+    "type": "IA",
+    "message": "Para confirmar o agendamento, um dos nossos especialistas da CMW te ligará para acertar os últimos detalhes e te dar as boas-vindas."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "12:54:47",
+    "type": "User",
+    "message": "Ok"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "12:55:31",
+    "type": "IA",
+    "message": "Que ótimo que você gostou do Pura Americana!\n\n"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "12:55:36",
+    "type": "IA",
+    "message": "Sua visita para quarta-feira de manhã está confirmada."
+  },
+  {
+    "date": "10/11/2025",
+    "time": "12:55:42",
+    "type": "IA",
+    "message": "Um dos nossos especialistas da CMW entrará em contato para acertar os detalhes finais e te receber.\n\n"
+  },
+  {
+    "date": "10/11/2025",
+    "time": "12:55:46",
+    "type": "IA",
+    "message": "Fico à disposição se precisar de algo mais!"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:30:06",
+    "type": "User",
+    "message": "Oi"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:31:15",
+    "type": "IA",
+    "message": "Olá!"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:31:20",
+    "type": "IA",
+    "message": "Que bom que você voltou a falar comigo!"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:31:22",
+    "type": "IA",
+    "message": "\n\n"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:31:27",
+    "type": "IA",
+    "message": "Lembro que tínhamos agendado sua visita para quarta-feira de manhã para conhecer o Pura Americana."
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:41:09",
+    "type": "User",
+    "message": "Podemos marcar pra sexta?"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:42:18",
+    "type": "IA",
+    "message": "Claro que sim!"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:42:23",
+    "type": "IA",
+    "message": "A visita pode ser marcada para sexta-feira."
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:42:28",
+    "type": "IA",
+    "message": "Vou ajustar o agendamento e informar o especialista da CMW para que ele entre em contato com você no novo dia combinado.\n\n"
+  },
+  {
+    "date": "03/12/2025",
+    "time": "10:42:34",
+    "type": "IA",
+    "message": "Se preferir, posso confirmar o horário exato ou ajustar algo, basta me avisar!"
+  }
+]

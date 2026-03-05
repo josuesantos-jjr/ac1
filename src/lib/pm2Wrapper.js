@@ -66,7 +66,7 @@ export async function stopPm2Process(processName) {
 
 export async function startPm2Process(processName) {
   try {
-    await execPromise(`pm2 start ${processName}`);
+    await execPromise(`bun pm2 start ${processName}`);
     return { success: true };
   } catch (error) {
     console.error('Erro ao iniciar processo:', error);

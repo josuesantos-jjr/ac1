@@ -50,7 +50,7 @@ async function copiarArquivosDoModelo(modeloId: string, nomeCliente: string) {
     // Salva o nome real do cliente no infoCliente.json
     const infoClientePath = path.join(novoClientePath, 'config', 'infoCliente.json');
     const infoClienteData = {
-      codigo: nomePastaCliente, // código fixo (nome da pasta)
+      id: nomePastaCliente, // id fixo (nome da pasta)
       CLIENTE: nomeCliente,     // nome de exibição
       STATUS: "ativo",
       AI_SELECTED: "GEMINI",

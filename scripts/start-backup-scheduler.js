@@ -7,7 +7,7 @@ import { exec } from 'child_process';
 
 console.log('🚀 Iniciando Google Drive Backup Scheduler...');
 
-const pm2Command = `pm2 start src/backend/service/googleDriveBackupScheduler.ts --name "backup-scheduler" -- --transpile-only`;
+const pm2Command = `bun pm2 start src/backend/service/googleDriveBackupScheduler.ts --name "backup-scheduler" -- --transpile-only`;
 
 exec(pm2Command, (error, stdout, stderr) => {
   if (error) {

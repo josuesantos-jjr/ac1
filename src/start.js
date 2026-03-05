@@ -48,7 +48,7 @@ async function startNext() {
   console.log('Iniciando Next.js na porta 3000...');
 
   return new Promise((resolve, reject) => {
-    nextProcess = exec('pm2 start src/next-app.js -f', (error, stdout, stderr) => {
+    nextProcess = exec('bun pm2 start src/next-app.js -f', (error, stdout, stderr) => {
       if (error) {
         console.error('Erro ao iniciar Next.js:', error);
         reject(error);

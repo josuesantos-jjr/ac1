@@ -1,0 +1,44 @@
+[
+  {
+    "id_agendamento": "ag_1764768625454_5519989808",
+    "telefone": "5519989808901",
+    "nome_lead": "Não identificado",
+    "data_hora_agendamento": "2025-12-10T09:00:00",
+    "tipo_agendamento": "visita",
+    "status_agendamento": "confirmado",
+    "resumo_conversa": "User: Bom dia\nIA: Oi, tudo bem?\nIA: Que ótimo que você está procurando um apartamento!\nIA: Eu tenho ótimas oportunidades.\nIA: Você ainda está pensando em comprar?\nUser: Sim\nIA: Que legal!\nIA: Fico feliz em saber que você ainda está buscando seu novo lar.\nIA: Para te ajudar a encontrar o lugar perfeito, me conta: qual cidade você tem em mente para morar?\nUser: Americana\nIA: Que demais que você está pensando em Americana!\nIA: É uma cidade com muitas opções legais.\nIA: Para que eu possa te mostrar os imóveis que mais combinam com você, me conta: qual a sua renda familiar mensal aproximada?\nIA: Assim a gente já direciona para as melhores oportunidades!\nUser: Entre 4 a 5mil\nIA: Que ótimo que você está buscando em Americana! Com essa renda familiar entre 4 a 5 mil, o\nIA: Village\nIA: é realmente uma opção que bate super bem. Ele tem apartamentos de 50m² a 54m², com 2 quartos e aquele lazer que a gente adora: piscina, academia e espaço pet para os bichinhos! E o melhor: a entrada é parcelada em 60x e a documentação é por nossa conta!\n\nO que acha de marcarmos uma visita para você conhecer o decorado? Tenho certeza que você vai adorar sentir o espaço de perto e tirar todas as suas dúvidas com um dos nossos especialistas.\nUser: Tem mais opções?\nIA: Que legal que você quer ver mais opções! Fico feliz em te ajudar a encontrar o lugar perfeito em Americana.\n\nPensando na sua renda familiar entre R$ 4.000 e R$ 5.000, temos outras opções que se encaixam muito bem:\nIA: O **Pura Americana** é uma ótima pedida! São casas de 60m² com 2 quartos (sendo 1 suíte) e 2 vagas de garagem. Ele tem lazer completo com piscina, academia e campo de areia. A entrada é parcelada em 60x e a documentação é grátis.\nO **Iraema** também pode ser interessante. Ele tem apartamentos de 49m² com 2 quartos e lazer completo, com piscina, espaço pet e salão de festas. A entrada é parcelada em 30x e a documentação também é por nossa conta.\nIA: Entre o Village, Pura Americana e Iraema, algum desses te chamou mais a atenção? Assim já podemos focar nas melhores condições para você!\nUser: Pura\nIA: Que bom que o Pura Americana chamou sua atenção! Ele é uma excelente opção para você.\nIA: Pura Americana\n- Localizado no Jardim Pacaembu (Proximo Davita de Americana)\n- Previsão de Entrega Novembro de 2026\n- Casas de 60m² com 02 quartos sendo 01 suite (2 vagas de garagem)\n- Lazer completo com: Piscina, Academia, Campo de Areia, Salão de Festas e muitos mais\n- Entrada Parcelada em 60x e Documentação Gratis\nIA: Para te ajudar a sentir ainda mais o Pura Americana e tirar todas as suas dúvidas, o que acha de agendarmos uma visita para conhecer o decorado? Assim, você pode ter uma experiência completa e conversar com um dos nossos especialistas. Que dia e horário ficaria bom para você?\nUser: Ah, legal, gostei. Eu acho que pode ser na na quarta-feira de manhã. Você acha que dá?\nIA: Que maravilha que você gostou do Pura Americana!\nIA: Combinado para quarta-feira de manhã, sim!\nIA: \n\n\nIA: Para confirmar o agendamento, um dos nossos especialistas da CMW te ligará para acertar os últimos detalhes e te dar as boas-vindas.\nUser: Ok\nIA: Que ótimo que você gostou do Pura Americana!\n\n\nIA: Sua visita para quarta-feira de manhã está confirmada.\nIA: Um dos nossos especialistas da CMW entrará em contato para acertar os detalhes finais e te receber.\n\n\nIA: Fico à disposição se precisar de algo mais!\nUser: Oi",
+    "chatId": "5519989808901@c.us",
+    "data_hora_lembrete": "2025-12-09T09:00:00",
+    "lembrete_enviado": false,
+    "created_at": "2025-12-03T13:30:25.457Z",
+    "updated_at": "2025-12-03T13:30:25.457Z",
+    "detalhes_agendamento": [
+      {
+        "agendamento_identificado": true,
+        "tipo_agendamento": "visita",
+        "data_agendada": "10/12/2025",
+        "horario_agendado": "09:00",
+        "agendamento_notificado": [
+          {
+            "chatid": false,
+            "TARGET_CHATID": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id_agendamento": "ag_1764769291251_5519989808",
+    "telefone": "5519989808901",
+    "nome_lead": "Não identificado",
+    "data_hora_agendamento": "2025-12-05T09:00:00",
+    "tipo_agendamento": "visita",
+    "status_agendamento": "confirmado",
+    "resumo_conversa": "User: Bom dia\nIA: Oi, tudo bem?\nIA: Que ótimo que você está procurando um apartamento!\nIA: Eu tenho ótimas oportunidades.\nIA: Você ainda está pensando em comprar?\nUser: Sim\nIA: Que legal!\nIA: Fico feliz em saber que você ainda está buscando seu novo lar.\nIA: Para te ajudar a encontrar o lugar perfeito, me conta: qual cidade você tem em mente para morar?\nUser: Americana\nIA: Que demais que você está pensando em Americana!\nIA: É uma cidade com muitas opções legais.\nIA: Para que eu possa te mostrar os imóveis que mais combinam com você, me conta: qual a sua renda familiar mensal aproximada?\nIA: Assim a gente já direciona para as melhores oportunidades!\nUser: Entre 4 a 5mil\nIA: Que ótimo que você está buscando em Americana! Com essa renda familiar entre 4 a 5 mil, o\nIA: Village\nIA: é realmente uma opção que bate super bem. Ele tem apartamentos de 50m² a 54m², com 2 quartos e aquele lazer que a gente adora: piscina, academia e espaço pet para os bichinhos! E o melhor: a entrada é parcelada em 60x e a documentação é por nossa conta!\n\nO que acha de marcarmos uma visita para você conhecer o decorado? Tenho certeza que você vai adorar sentir o espaço de perto e tirar todas as suas dúvidas com um dos nossos especialistas.\nUser: Tem mais opções?\nIA: Que legal que você quer ver mais opções! Fico feliz em te ajudar a encontrar o lugar perfeito em Americana.\n\nPensando na sua renda familiar entre R$ 4.000 e R$ 5.000, temos outras opções que se encaixam muito bem:\nIA: O **Pura Americana** é uma ótima pedida! São casas de 60m² com 2 quartos (sendo 1 suíte) e 2 vagas de garagem. Ele tem lazer completo com piscina, academia e campo de areia. A entrada é parcelada em 60x e a documentação é grátis.\nO **Iraema** também pode ser interessante. Ele tem apartamentos de 49m² com 2 quartos e lazer completo, com piscina, espaço pet e salão de festas. A entrada é parcelada em 30x e a documentação também é por nossa conta.\nIA: Entre o Village, Pura Americana e Iraema, algum desses te chamou mais a atenção? Assim já podemos focar nas melhores condições para você!\nUser: Pura\nIA: Que bom que o Pura Americana chamou sua atenção! Ele é uma excelente opção para você.\nIA: Pura Americana\n- Localizado no Jardim Pacaembu (Proximo Davita de Americana)\n- Previsão de Entrega Novembro de 2026\n- Casas de 60m² com 02 quartos sendo 01 suite (2 vagas de garagem)\n- Lazer completo com: Piscina, Academia, Campo de Areia, Salão de Festas e muitos mais\n- Entrada Parcelada em 60x e Documentação Gratis\nIA: Para te ajudar a sentir ainda mais o Pura Americana e tirar todas as suas dúvidas, o que acha de agendarmos uma visita para conhecer o decorado? Assim, você pode ter uma experiência completa e conversar com um dos nossos especialistas. Que dia e horário ficaria bom para você?\nUser: Ah, legal, gostei. Eu acho que pode ser na na quarta-feira de manhã. Você acha que dá?\nIA: Que maravilha que você gostou do Pura Americana!\nIA: Combinado para quarta-feira de manhã, sim!\nIA: \n\n\nIA: Para confirmar o agendamento, um dos nossos especialistas da CMW te ligará para acertar os últimos detalhes e te dar as boas-vindas.\nUser: Ok\nIA: Que ótimo que você gostou do Pura Americana!\n\n\nIA: Sua visita para quarta-feira de manhã está confirmada.\nIA: Um dos nossos especialistas da CMW entrará em contato para acertar os detalhes finais e te receber.\n\n\nIA: Fico à disposição se precisar de algo mais!\nUser: Oi\nIA: Olá!\nIA: Que bom que você voltou a falar comigo!\nIA: \n\n\nIA: Lembro que tínhamos agendado sua visita para quarta-feira de manhã para conhecer o Pura Americana.\nUser: Podemos marcar pra sexta?",
+    "chatId": "5519989808901@c.us",
+    "data_hora_lembrete": "2025-12-04T09:00:00",
+    "lembrete_enviado": false,
+    "created_at": "2025-12-03T13:41:31.252Z",
+    "updated_at": "2025-12-03T13:41:31.252Z"
+  }
+]
