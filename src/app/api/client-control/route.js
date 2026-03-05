@@ -132,12 +132,16 @@ export async function POST(request) {
         await pm2Start({
             name: processName,
             script: scriptPath,
-            interpreter: 'node',
-            node_args: ['--experimental-strip-types'], // Executa TS nativamente no Node 22+
+            interpreter: 'none', // Bun não precisa de interpretador
             cwd: process.cwd(),
             watch: false,
             autorestart: true,
-            max_memory_restart: '500M' // Reinicia se passar de 500MB
+            max_memory_restart: '500M', // Reinicia se passar de 500MB
+            vizion: false, // Desabilita funcionalidades de inspeção (incompatível com Bun)
+            env: {
+                PM2_DISABLED: 'true',
+                BUN_INSPECTOR: '' // Desabilita inspector do Bun
+            }
         });
         
         // Verifica status final
