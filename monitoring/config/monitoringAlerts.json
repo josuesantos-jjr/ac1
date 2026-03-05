@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-03-05T00:30:47.661Z",
+  "timestamp": "2026-03-05T03:06:09.485Z",
   "rule": "cache_ineffective",
   "severity": "low",
   "message": "💾 ALERTA: Taxa de cache abaixo de 20%",
   "metrics": {
-    "timestamp": 1772670647659,
-    "uptime": 30005,
+    "timestamp": 1772679969481,
+    "uptime": 30007,
     "totalRequests": 0,
     "successRate": 0,
     "averageResponseTime": 0,

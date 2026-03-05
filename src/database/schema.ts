@@ -245,7 +245,7 @@ export const DATABASE_MIGRATIONS = [
 ];
 
 // Função de migração segura que verifica se a coluna existe
-export async function runSafeMigrations(db) {
+export async function runSafeMigrations(db: any) {
   try {
     // Verificar se a coluna 'id' já existe
     const result = await db.prepare("PRAGMA table_info(clientes)").all();
@@ -258,6 +258,6 @@ export async function runSafeMigrations(db) {
       console.log('[Migration] Coluna id já existe, pulando');
     }
   } catch (error) {
-    console.log('[Migration] Erro na migração (pode já ter sido executada):', error.message);
+    console.log('[Migration] Erro na migração (pode já ter sido executada):', (error as Error).message);
   }
 }

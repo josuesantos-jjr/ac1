@@ -1,6 +1,6 @@
 {
+  "id": "C2",
   "CLIENTE": "C2",
-  "name": "C1",
   "IGNORAR_CONTATO": [
     {
       "ativar": "true",
@@ -113,5 +113,5 @@
   "QR_CODE": null,
   "STATUS_SESSION": "autoCloseCalled",
   "BK_CHATID": "5519989808901@c.us",
-  "codigo": "C2"
+
 }

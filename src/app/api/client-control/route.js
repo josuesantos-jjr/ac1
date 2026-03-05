@@ -130,15 +130,16 @@ export async function POST(request) {
         console.log(`[API /api/client-control] Starting process ${processName} for client ${clientId}...`);
 
         // Inicia usando a API
+        // Usa 'bun' como interpretador para funcionar no Windows
         await pm2Start({
             name: processName,
             script: scriptPath,
-            interpreter: 'none', // Bun não precisa de interpretador
+            interpreter: 'bun', // Bun como interpretador
             cwd: process.cwd(),
             watch: false,
             autorestart: true,
             max_memory_restart: '500M', // Reinicia se passar de 500MB
-            vizion: false, // Desabilita funcionalidades de inspeção (incompatível com Bun)
+            vizion: false, // Desabilita funcionalidades de inspeção
             env: {
                 PM2_DISABLED: 'true',
                 BUN_INSPECTOR: '' // Desabilita inspector do Bun
