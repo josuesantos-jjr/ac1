@@ -1,25 +1,24 @@
 import wppconnect from '@wppconnect-team/wppconnect';
-import { initializeNewAIChatSession } from '../../../src/backend/service/openai.ts';
-import { splitMessages, sendMessagesWithDelay, setCancelCurrentSending, getIsSendingMessages, handleMessageSplitting } from '../../../src/backend/util/index.ts';
+import { initializeNewAIChatSession } from '../../src/backend/service/openai.ts';
+import { splitMessages, sendMessagesWithDelay, setCancelCurrentSending, getIsSendingMessages, handleMessageSplitting } from '../../src/backend/util/index.ts';
 import { generateQRCode } from './config/qrcode.ts';
-import logger from '../../../src/backend/util/logger.ts';
-import { mainGoogleBG } from '../../../src/backend/service/googleBG.ts';
-import { mainGoogleChat } from '../../../src/backend/service/googlechat.ts';
-import { syncManager } from '../../../src/database/sync.ts';
+import logger from '../../src/backend/util/logger.ts';
+import { mainGoogleBG } from '../../src/backend/service/googleBG.ts';
+import { mainGoogleChat } from '../../src/backend/service/googlechat.ts';
+import { syncManager } from '../../src/database/sync.ts';
 import fs from 'node:fs';
 import os from 'node:os';
 import path, { resolve } from 'node:path';
-import { dispararMensagens, getPasta, saveMessageToFile } from '../../../src/backend/disparo/disparo.ts'; // Importando as funções
-import { dispararFollowupsAgendados } from '../../../src/backend/followup/disparoFollowup.ts'; // Importar a nova função
-import { checkResposta } from '../../../src/backend/service/automacoes/checkResposta.ts';
+import { dispararMensagens, getPasta, saveMessageToFile } from '../../src/backend/disparo/disparo.ts'; // Importando as funções
+import { dispararFollowupsAgendados } from '../../src/backend/followup/disparoFollowup.ts'; // Importar a nova função
+import { checkResposta } from '../../src/backend/service/automacoes/checkResposta.ts';
 import { fileURLToPath } from 'node:url';
-import { IgnoreLead, verificarChatBloqueado } from '../../../src/backend/service/braim/stop.ts';
-import { agendarLimpezaBloqueios } from '../../../src/backend/service/braim/limpezaBloqueios.ts';
+import { IgnoreLead, verificarChatBloqueado } from '../../src/backend/service/braim/stop.ts';
+import { agendarLimpezaBloqueios } from '../../src/backend/service/braim/limpezaBloqueios.ts';
 import { setTimeout, clearTimeout } from 'timers';
-import { monitorarConversa } from '../../../src/backend/analiseConversa/monitoramentoConversa.ts';
-import { qualificarLead } from '../../../src/backend/analiseConversa/qualificarLead.ts';
-import { updateLastReceivedMessageDate, updateLastSentMessageDate, cleanChatId } from '../../../src/backend/util/chatDataUtils.ts';
-import { iniciarAgendamentoRelatorios } from '../../../src/backend/relatorio/agendadorRelatorios.ts';
+import { monitorarConversa } from '../../src/backend/analiseConversa/monitoramentoConversa.ts';
+import { updateLastReceivedMessageDate, updateLastSentMessageDate, cleanChatId } from '../../src/backend/util/chatDataUtils.ts';
+import { iniciarAgendamentoRelatorios } from '../../src/backend/relatorio/agendadorRelatorios.ts';
 
 let geminiKeyIndex = 0;
 async function tryGeminiWithRotation(prompt: string, chatId: string, clearHistory: boolean, __dirname: string): Promise<string> {
@@ -105,21 +104,26 @@ const MAX_CACHED_MESSAGES = 5;
 const activeValidations = new Set<string>();
 const VALIDATION_TIMEOUT = 10000; // 10 segundos máximo por validação
 
-// Extrai o ID completo do cliente (ex: 'ativos/Alpha')
-const clienteIdCompleto = (() => {
-    const clientePathParts = __dirname.split(path.sep);
-    // Ajusta a lógica para pegar as duas últimas partes se a penúltima for 'clientes'
-    if (clientePathParts.length >= 3 && clientePathParts[clientePathParts.length - 3] === 'clientes') {
-        // Retorna 'tipo/nome', ex: 'ativos/Alpha'
-        return path.join(clientePathParts[clientePathParts.length - 2], clientePathParts[clientePathParts.length - 1]).replace(/\\/g, '/'); // Garante barras normais
-    }
-    logger.error("Não foi possível determinar o ID completo do cliente (ex: ativos/Alpha) a partir do __dirname:", __dirname);
-    return null; // Retorna null se não conseguir determinar
-})();
-
 // Carrega as configurações de infoCliente.json
 const infoPath = path.join(__dirname, 'config', 'infoCliente.json');
 const infoConfig = JSON.parse(fs.readFileSync(infoPath, 'utf-8'));
+
+// Extrai o clientId direto baseado no infoCliente.json (ex: 'CMW')
+const clienteIdCompleto = (() => {
+    const client = infoConfig.CLIENTE || '';
+    if (client) {
+        return client; // Retorna apenas o nome do cliente
+    }
+    logger.error("Não foi possível determinar o clientId a partir do infoCliente.json");
+    return null; // Retorna null se não conseguir determinar
+})();
+
+// Cria uma função para determinar o diretório correto do cliente (agora direto)
+function getClienteDir(clientId: string): string {
+    // clientId agora é apenas o nome do cliente (ex: "CMW")
+    return path.join(process.cwd(), 'clientes', clientId);
+}
+
 
 const cliente = infoConfig.CLIENTE || '';
 const AI_SELECTED: AIOption = infoConfig.AI_SELECTED || `GEMINI`;
@@ -553,7 +557,7 @@ async function handleLeadIdentification(client: wppconnect.Whatsapp, clientId: s
 async function notifyLeadIdentified(client: wppconnect.Whatsapp, clientId: string, chatId: string, leadId: string, summary: string) {
   try {
     if (TARGET_CHAT_ID) {
-      const nomeClienteSimples = path.basename(clientePath);
+      const nomeClienteSimples = clienteIdCompleto || path.basename(clientePath);
       const leadAtualizado = await findLeadByChatId(clientId, chatId);
       const dadosFilePath = path.join(__dirname, 'Chats', 'Historico', chatId, 'Dados.json');
       const dadosFileContent = fs.readFileSync(dadosFilePath, 'utf-8');
@@ -607,8 +611,11 @@ async function notifyLeadIdentified(client: wppconnect.Whatsapp, clientId: strin
 async function notifyLeadQualificado(client: wppconnect.Whatsapp, clientId: string, chatId: string, analise: any, lead: any) {
   try {
     if (TARGET_CHAT_ID) {
-      const nomeClienteSimples = path.basename(clientePath);
+      const nomeClienteSimples = cliente; // Usa o nome do cliente do config
+      const nomePastaCliente = path.basename(clientePath);
       const tipoLead = analise.detalhes_agendamento?.[0]?.agendamento_identificado ? '🔥 LEAD QUENTE' : '⚡ LEAD MORNO';
+
+      logger.info(`[notifyLeadQualificado] Enviando notificação para cliente: ${nomeClienteSimples} (pasta: ${nomePastaCliente})`);
 
       const mensagemNotificacao = `🎯 *Lead Qualificado Identificado!* 🎯\n\n` +
         `*Cliente:* ${nomeClienteSimples}\n` +
@@ -623,11 +630,11 @@ async function notifyLeadQualificado(client: wppconnect.Whatsapp, clientId: stri
         `*📋 Resumo da Conversa:*\n${analise.resumoParaAtendente || 'Resumo não gerado.'}\n\n` +
         `*🎯 Insights para Abordagem:*\n${gerarInsightsParaLead(analise)}`;
 
-      logger.info(`🚀 Enviando notificação de lead qualificado para ${TARGET_CHAT_ID}`);
+      logger.info(`🚀 Enviando notificação de lead qualificado para ${TARGET_CHAT_ID} (cliente: ${nomeClienteSimples}, pasta: ${nomePastaCliente})`);
       await sendMessage(client, clientePath, TARGET_CHAT_ID, mensagemNotificacao);
-      logger.info(`✅ Notificação de lead qualificado enviada com sucesso para ${chatId}`);
+      logger.info(`✅ Notificação de lead qualificado enviada com sucesso para ${chatId} (cliente: ${nomeClienteSimples})`);
     } else {
-      logger.warn(`TARGET_CHAT_ID não configurado. Notificação de lead qualificado não enviada.`);
+      logger.warn(`TARGET_CHAT_ID não configurado. Notificação de lead qualificado não enviada para cliente ${cliente}.`);
     }
   } catch (error) {
     logger.error(`Erro ao notificar lead qualificado para ${chatId}:`, error);
@@ -808,6 +815,17 @@ async function sendMessage(client: wppconnect.Whatsapp, clientePath: string, cha
 export { sendMessage };
 
 // --- INICIALIZAÇÃO ---
+
+// Verifica se o Chrome está instalado corretamente (Diagnóstico para Docker vs Nixpacks)
+const chromePath = '/usr/bin/google-chrome-stable';
+if (fs.existsSync(chromePath)) {
+  logger.info(`[CMW] ✅ Google Chrome encontrado em: ${chromePath}`);
+} else {
+  logger.error(`[CMW] ❌ Google Chrome NÃO encontrado em: ${chromePath}`);
+  logger.error(`[CMW] ⚠️ O sistema provavelmente está rodando via Nixpacks (Ubuntu) em vez do Dockerfile.`);
+  logger.error(`[CMW] ⚠️ Configure o 'Build Pack' para 'Dockerfile' no Coolify para corrigir.`);
+}
+
 wppconnect
   .create({
     session: cliente, // Usa o nome simples do cliente para nome da sessão local
@@ -815,18 +833,27 @@ wppconnect
     puppeteerOptions: {
       protocolTimeout: 120000, // Aumenta o tempo limite do protocolo para 120 segundos
       args: ['--no-sandbox', '--disable-gpu', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process', '--no-zygote'],
-      executablePath: '/home/s_onpublicidade/AC-Oracle/.cache/puppeteer/chrome/linux-141.0.7390.54/chrome-linux64/chrome',
+      executablePath: chromePath, // Usa a variável definida acima
     },
     catchQR: async (base64Qrimg, asciiQR, attempts, urlCode) => {
       logger.info(`Terminal qrcode: `, asciiQR);
+      console.log(`[CMW] catchQR called with urlCode: ${urlCode}`);
+      
       if (urlCode) {
+        console.log(`[CMW] Updating QR_CODE in infoCliente.json`);
         await updateInfoCliente('QR_CODE', urlCode);
+        
         try {
+          console.log(`[CMW] Calling generateQRCode with urlCode: ${urlCode}`);
           const qrCodePath = await generateQRCode(urlCode);
+          console.log(`[CMW] QR Code generated and saved at: ${qrCodePath}`);
           logger.info('QR Code gerado e salvo em:', qrCodePath);
         } catch (error) {
+          console.error(`[CMW] Error generating QR Code:`, error);
           logger.error('Erro ao gerar QR Code:', error);
         }
+      } else {
+        console.log(`[CMW] No urlCode provided in catchQR`);
       }
     },
     statusFind: async (statusSession, session) => {
@@ -834,9 +861,11 @@ wppconnect
       logger.info(`Session name: `, session);
       if (statusSession) {
         await updateInfoCliente('STATUS_SESSION', statusSession);
+        
         // Verifica se o status indica falha na autenticação ou sucesso
         if (statusSession === 'qrReadError' || statusSession === 'qrReadFail' || statusSession === 'inChat') {
           const qrcodePath = path.join(__dirname, 'config', 'qrcode', 'qrcode.png');
+
           // Verifica se o arquivo QR code existe antes de tentar apagar
           if (fs.existsSync(qrcodePath)) {
             try {
@@ -844,6 +873,17 @@ wppconnect
               logger.info(`Arquivo QR code apagado: ${qrcodePath}`);
             } catch (error) {
               logger.error(`Erro ao apagar arquivo QR code ${qrcodePath}:`, error);
+            }
+          }
+
+          // Apaga o estado.json para forçar para reiniciar o periodo de aquecimento
+          const estadoPath = path.join(__dirname, 'config', 'estado.json');
+          if (fs.existsSync(estadoPath)) {
+            try {
+              fs.unlinkSync(estadoPath);
+              logger.info(`Arquivo estado.json apagado: ${estadoPath}`);
+            } catch (error) {
+              logger.error(`Erro ao apagar arquivo estado.json ${estadoPath}:`, error);
             }
           }
         }
@@ -1036,7 +1076,7 @@ async function start(client: wppconnect.Whatsapp): Promise<void> {
         await client.decryptAndSaveFile(message, audioPath);
         logger.info(`[Unread Message] Áudio salvo em: ${audioPath}`);
 
-        const transcribeModule = await import('../../../src/backend/tollsIA/transcrever_audio.cjs');
+        const transcribeModule = await import('../../src/backend/tollsIA/transcrever_audio.cjs');
         const transcribeAudio = transcribeModule.default;
         currentMessageBody = await transcribeAudio(audioPath, clientePath);
         logger.info(`[Unread Message] Transcrição do áudio: ${currentMessageBody}`);
@@ -1244,7 +1284,7 @@ async function start(client: wppconnect.Whatsapp): Promise<void> {
             const audioPath = path.join(audioDir, `${Date.now()}.mp3`);
             await client.decryptAndSaveFile(message, audioPath);
             logger.info(`Áudio salvo em: ${audioPath}`);
-            const transcribeModule = await import('../../../src/backend/tollsIA/transcrever_audio.cjs');
+            const transcribeModule = await import('../../src/backend/tollsIA/transcrever_audio.cjs');
             const transcribeAudio = transcribeModule.default;
             currentMessageBody = await transcribeAudio(audioPath, clientePath);
             logger.info(`Transcrição do áudio: ${currentMessageBody}`);

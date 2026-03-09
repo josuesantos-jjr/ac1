@@ -39,9 +39,7 @@ export default function NovoClienteModal({ isOpen, onClose, modelos, onSave }) {
     setError('');
     setIsLoading(true);
     try {
-      const clienteId = `${dadosCliente.nome}`;
-      setNovoClienteId(clienteId);
-      console.log(`[NovoClienteModal] Chamando API para copiar arquivos. Modelo: ${modeloSelecionado}, Cliente ID: ${clienteId}`);
+      console.log(`[NovoClienteModal] Chamando API para copiar arquivos. Modelo: ${modeloSelecionado}, Nome Cliente: ${dadosCliente.nome}`);
 
       // Chamar o endpoint da API para copiar os arquivos
       const copiarArquivosResponse = await fetch('/api/create-client-functions', {
@@ -52,7 +50,7 @@ export default function NovoClienteModal({ isOpen, onClose, modelos, onSave }) {
         body: JSON.stringify({
           action: 'copiarArquivosDoModelo',
           modeloId: modeloSelecionado,
-          novoClienteId: clienteId,
+          nomeCliente: dadosCliente.nome,
         }),
       });
 
@@ -66,6 +64,12 @@ export default function NovoClienteModal({ isOpen, onClose, modelos, onSave }) {
 
       const copiarArquivosResult = await copiarArquivosResponse.json();
       console.log('[NovoClienteModal] Resultado da API (copiar):', copiarArquivosResult);
+      
+      // Usa o nomePasta retornado pela API (ex: C5) para salvar depois
+      const pastaCliente = copiarArquivosResult.nomePasta;
+      setNovoClienteId(pastaCliente);
+      console.log(`[NovoClienteModal] Pasta do cliente definida como: ${pastaCliente}`);
+      
       setEnvData(copiarArquivosResult.envData || {});
       console.log('[NovoClienteModal] Estado envData atualizado:', copiarArquivosResult.envData || {}); // <-- LOG FRONTEND 1
 
@@ -99,7 +103,7 @@ export default function NovoClienteModal({ isOpen, onClose, modelos, onSave }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          action: 'salvarDadosNoFirebase',
+          action: 'salvarDadosNoEnv',
           novoClienteId: novoClienteId,
           dados: dadosCompletos, // Envia os dados combinados
           modeloSelecionado: modeloSelecionado,

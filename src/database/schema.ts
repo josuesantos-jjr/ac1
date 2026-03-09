@@ -249,7 +249,9 @@ export async function runSafeMigrations(db: any) {
   try {
     // Verificar se a coluna 'id' já existe
     const result = await db.prepare("PRAGMA table_info(clientes)").all();
-    const hasIdColumn = result.some((col: any) => col.name === 'id');
+    // Garantir que result é um array
+    const resultArray = Array.isArray(result) ? result : [];
+    const hasIdColumn = resultArray.some((col: any) => col.name === 'id');
     
     if (!hasIdColumn) {
       await db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`);

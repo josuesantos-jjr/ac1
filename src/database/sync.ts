@@ -262,6 +262,14 @@ export class SyncManager {
     const clientPath = this.getClientPath(clientId);
     const configPath = path.join(clientPath, 'config');
 
+    // SEGURANÇA: Verificar se o cliente existe antes de criar pastas
+    // Isso evita criar pastas inválidas quando um nome de exibição (CLIENTE) é passado
+    const infoClientePath = path.join(clientPath, 'config', 'infoCliente.json');
+    if (!fs.existsSync(infoClientePath)) {
+      console.log(`[SyncManager] Cliente ${clientId} não existe (infoCliente.json não encontrado), pulando salvamento`);
+      return;
+    }
+
     fs.mkdirSync(configPath, { recursive: true });
 
     // Salvar infoCliente.json

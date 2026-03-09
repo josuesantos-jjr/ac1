@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 import { getPasta } from '@/backend/disparo/disparo';
 import * as fs from 'node:fs';
 import path from 'node:path';
-import * as dotenv from 'dotenv';
 import * as fsPromises from 'node:fs/promises'; // Importar fs com Promises
 import { syncManager } from '../../../database/sync.ts';
  
@@ -31,7 +30,7 @@ async function copiarArquivosDoModelo(modeloId: string, nomeCliente: string) {
   }
 
   currentCounter += 1;
-  const nomePastaCliente = `cliente${currentCounter}`;
+  const nomePastaCliente = `C${currentCounter}`;
   const novoClientePath = getPasta(nomePastaCliente);
 
   console.log(`[API] Copiando de ${modeloPath} para ${novoClientePath} (pasta: ${nomePastaCliente}, nome: ${nomeCliente})`);
@@ -49,16 +48,28 @@ async function copiarArquivosDoModelo(modeloId: string, nomeCliente: string) {
 
     // Salva o nome real do cliente no infoCliente.json
     const infoClientePath = path.join(novoClientePath, 'config', 'infoCliente.json');
-    const infoClienteData = {
-      id: nomePastaCliente, // id fixo (nome da pasta)
-      CLIENTE: nomeCliente,     // nome de exibição
-      STATUS: "ativo",
-      AI_SELECTED: "GEMINI",
-      // Outros campos padrão podem ser adicionados conforme necessário
+    
+    // Lê o infoCliente.json existente do modelo (se existir)
+    let infoClienteData = {};
+    if (fs.existsSync(infoClientePath)) {
+      try {
+        const infoContent = await fs.promises.readFile(infoClientePath, 'utf-8');
+        infoClienteData = JSON.parse(infoContent);
+        console.log('[API] infoCliente.json do modelo carregado:', Object.keys(infoClienteData).length, 'campos');
+      } catch (readError) {
+        console.error('[API] Erro ao ler infoCliente.json do modelo:', readError);
+      }
+    }
+    
+    // Atualiza apenas os campos necessários (preservando os outros)
+    infoClienteData = {
+      ...infoClienteData,
+      id: nomePastaCliente,
+      CLIENTE: nomeCliente,
     };
 
     await fsPromises.writeFile(infoClientePath, JSON.stringify(infoClienteData, null, 2), 'utf-8');
-    console.log(`[API] infoCliente.json criado com CLIENTE: ${nomeCliente}`);
+    console.log(`[API] infoCliente.json atualizado com id: ${nomePastaCliente} e CLIENTE: ${nomeCliente}`);
 
     try {
         // 🔄 SALVAR NO SQLITE (sincronização automática) - contador de clientes
@@ -80,44 +91,14 @@ async function copiarArquivosDoModelo(modeloId: string, nomeCliente: string) {
         // Continua mesmo se houver erro de escrita, o ID já foi gerado
     }
 
-    const envPath = path.join(novoClientePath, 'config', '.env');
+    // Usa apenas infoCliente.json para retornar os dados (não usa mais .env)
     let envData = {};
-
-    if (fs.existsSync(envPath)) {
-      console.log(`[API] Arquivo .env encontrado em ${envPath}. Atualizando CLIENTE_ID.`);
-      let envContent = await fs.promises.readFile(envPath, 'utf-8');
-
-      // Substituir ou adicionar CLIENTE_ID
-      const lines = envContent.split('\n');
-      let clientIdFound = false;
-      const newLines = lines.map(line => {
-        if (line.trim().startsWith('CLIENTE_ID=')) {
-          clientIdFound = true;
-          return `CLIENTE_ID="${currentCounter}"`;
-        }
-        return line;
-      });
-
-      if (!clientIdFound) {
-        newLines.push(`CLIENTE_ID="${currentCounter}"`);
-      }
-      envContent = newLines.join('\n');
-
-      await fs.promises.writeFile(envPath, envContent, 'utf-8');
-      console.log(`[API] CLIENTE_ID atualizado no .env para ${currentCounter}`);
-
-      // Lê o arquivo .env atualizado para retornar os dados corretos
-      const parsedEnv = dotenv.config({ path: envPath }).parsed;
-      if (parsedEnv) {
-        envData = parsedEnv;
-        console.log('[API] Dados lidos do .env atualizado:', envData);
-      } else {
-        console.log('[API] dotenv.config retornou parsed undefined ou null após atualização.');
-      }
-
+    
+    if (infoClienteData && Object.keys(infoClienteData).length > 0) {
+      envData = infoClienteData;
+      console.log('[API] Usando infoCliente.json para retorno:', Object.keys(envData).length, 'campos');
     } else {
-      console.log(`[API] Arquivo .env NÃO encontrado em ${envPath}. Não foi possível adicionar CLIENTE_ID.`);
-      // Se o .env não existe, envData permanece vazio como antes
+      console.log('[API] infoClienteData vazio ou não encontrado.');
     }
     // 🔄 SALVAR NO SQLITE (sincronização automática) - novo cliente
     try {

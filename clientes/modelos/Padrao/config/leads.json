@@ -1,25 +1,2 @@
 [
-  {
-    "id": "8hwne4r545",
-    "clientId": "CMW",
-    "contatoId": "6ybpxvdttph",
-    "chatId": "5519989808901@c.us",
-    "nome": "Josué",
-    "telefone": "5519989808901",
-    "origem": "Contato Direto",
-    "tags": [
-      "lead-quente",
-      "agendamento-marcado",
-      "interesse-apartamento",
-      "cidade-americana",
-      "2-quartos",
-      "com-suite",
-      "residencial-iraema"
-    ],
-    "tipoLead": "Novo Lead",
-    "timestampIdentificacao": "2025-10-14T14:02:22.137Z",
-    "dataGeracaoLead": "14/10/2025, 11:02:22",
-    "dataNotificacaoLead": null,
-    "summary": "Josué demonstrou interesse em apartamentos de 2 quartos com suíte em Americana, focando no Residencial Iraema. Ele aceitou agendar uma visita presencial para quarta-feira, às 10h. Um representante da CMW entrará em contato para confirmar os detalhes."
-  }
 ]
