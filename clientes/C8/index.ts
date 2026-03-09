@@ -838,6 +838,7 @@ wppconnect
     session: clienteIdCompleto || cliente, // Usa o ID do cliente (C8) para nome da sessão
     headless: `new` as any,
     autoClose: 0, // Desativa o auto-close para manter a sessão ativa
+    devtools: true, // Mantém o DevTools aberto para evitar fechamento
     puppeteerOptions: {
       protocolTimeout: 120000, // Aumenta o tempo limite do protocolo para 120 segundos
       args: ['--no-sandbox', '--disable-gpu', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process', '--no-zygote'],
@@ -870,8 +871,8 @@ wppconnect
       if (statusSession) {
         await updateInfoCliente('STATUS_SESSION', statusSession);
         
-        // Verifica se o status indica falha na autenticação ou sucesso
-        if (statusSession === 'qrReadError' || statusSession === 'qrReadFail' || statusSession === 'inChat') {
+        // Verifica se o status indica falha na autenticação - NÃO apaga se já está conectado
+        if (statusSession === 'qrReadError' || statusSession === 'qrReadFail') {
           const qrcodePath = path.join(__dirname, 'config', 'qrcode', 'qrcode.png');
 
           // Verifica se o arquivo QR code existe antes de tentar apagar
@@ -895,6 +896,7 @@ wppconnect
             }
           }
         }
+        // Se status for 'inChat' (conectado), não apaga nada - mantém a sessão ativa
       }
     }
   })
