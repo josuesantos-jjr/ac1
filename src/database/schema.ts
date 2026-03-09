@@ -253,9 +253,20 @@ export async function runSafeMigrations(db: any) {
     const resultArray = Array.isArray(result) ? result : [];
     const hasIdColumn = resultArray.some((col: any) => col.name === 'id');
     
+    console.log('[Migration] Colunas da tabela clientes:', resultArray.map((c: any) => c.name));
+    
     if (!hasIdColumn) {
-      await db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`);
-      console.log('[Migration] Coluna id adicionada à tabela clientes');
+      try {
+        await db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`);
+        console.log('[Migration] Coluna id adicionada à tabela clientes');
+      } catch (addError: any) {
+        // Se der erro de coluna duplicada, significa que ela foi adicionada por outra instância
+        if (addError.message && addError.message.includes('duplicate column name')) {
+          console.log('[Migration] Coluna id já existe (erro capturado), pulando');
+        } else {
+          throw addError;
+        }
+      }
     } else {
       console.log('[Migration] Coluna id já existe, pulando');
     }
