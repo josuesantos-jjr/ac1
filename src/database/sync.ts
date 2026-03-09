@@ -264,8 +264,10 @@ export class SyncManager {
 
     // SEGURANÇA: Verificar se o cliente existe antes de criar pastas
     // Isso evita criar pastas inválidas quando um nome de exibição (CLIENTE) é passado
+    // Pastas de sistema (como monitoring) não precisam de infoCliente.json
+    const isSystem = this.isSystemFolder(clientId);
     const infoClientePath = path.join(clientPath, 'config', 'infoCliente.json');
-    if (!fs.existsSync(infoClientePath)) {
+    if (!isSystem && !fs.existsSync(infoClientePath)) {
       console.log(`[SyncManager] Cliente ${clientId} não existe (infoCliente.json não encontrado), pulando salvamento`);
       return;
     }
