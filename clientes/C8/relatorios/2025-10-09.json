@@ -1,0 +1,26 @@
+[
+  {
+    "data": "2025-10-09T21:54:16.598Z",
+    "numeroTelefone": "5519989808901",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 3,
+    "limiteDiario": 74
+  },
+  {
+    "data": "2025-10-09T22:53:21.749Z",
+    "numeroTelefone": "5519994236090",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 4,
+    "limiteDiario": 74
+  },
+  {
+    "data": "2025-10-09T22:54:29.906Z",
+    "numeroTelefone": "5519989808901",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 5,
+    "limiteDiario": 74
+  }
+]

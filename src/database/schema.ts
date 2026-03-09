@@ -245,32 +245,38 @@ export const DATABASE_MIGRATIONS = [
 ];
 
 // Função de migração segura que verifica se a coluna existe
-export async function runSafeMigrations(db: any) {
-  try {
-    // Verificar se a coluna 'id' já existe
-    const result = await db.prepare("PRAGMA table_info(clientes)").all();
-    // Garantir que result é um array
-    const resultArray = Array.isArray(result) ? result : [];
-    const hasIdColumn = resultArray.some((col: any) => col.name === 'id');
-    
-    console.log('[Migration] Colunas da tabela clientes:', resultArray.map((c: any) => c.name));
-    
-    if (!hasIdColumn) {
-      try {
-        await db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`);
-        console.log('[Migration] Coluna id adicionada à tabela clientes');
-      } catch (addError: any) {
-        // Se der erro de coluna duplicada, significa que ela foi adicionada por outra instância
-        if (addError.message && addError.message.includes('duplicate column name')) {
-          console.log('[Migration] Coluna id já existe (erro capturado), pulando');
-        } else {
-          throw addError;
-        }
-      }
-    } else {
-      console.log('[Migration] Coluna id já existe, pulando');
+// Versão com callbacks para evitar problemas com promises no sqlite3
+export function runSafeMigrations(db: any) {
+  console.log('[Migration] Iniciando migração...');
+  
+  // Primeiro, verificar se a tabela existe
+  db.prepare(
+    "SELECT name FROM sqlite_master WHERE type='table' AND name='clientes'"
+  ).get(function(err: any, row: any) {
+    if (err) {
+      console.log('[Migration] Erro ao verificar tabela:', err.message);
+      return;
     }
-  } catch (error) {
-    console.log('[Migration] Erro na migração (pode já ter sido executada):', (error as Error).message);
-  }
+    
+    if (!row) {
+      console.log('[Migration] Tabela clientes não existe, criando...');
+      return;
+    }
+    
+    // Tentar adicionar a coluna diretamente (ignora erro se já existir)
+    db.exec(`ALTER TABLE clientes ADD COLUMN id TEXT;`, function(addErr: any) {
+      if (addErr) {
+        // Se der erro de coluna duplicada, significa que já existe
+        const errorMsg = addErr?.message || String(addErr) || '';
+        if (errorMsg.includes('duplicate column name') || errorMsg.includes('duplicate')) {
+          console.log('[Migration] Coluna id já existe, pulando');
+        } else {
+          // Outro erro - apenas logar e continuar
+          console.log('[Migration] Erro ao adicionar coluna (ignorando):', errorMsg);
+        }
+      } else {
+        console.log('[Migration] Coluna id adicionada à tabela clientes');
+      }
+    });
+  });
 }

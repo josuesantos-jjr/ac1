@@ -1,0 +1,17 @@
+{
+  "id": "0hw68kom9pyq121c7ogfa73k",
+  "nome": "teste",
+  "mensagem": "Olá {nome}, tudo bem? Espero que a família {sobrenome} goste dos nossos serviços.",
+  "media": [],
+  "ativo": true,
+  "regras": {},
+  "attachmentPath": "",
+  "sendAttachment": true,
+  "selectedMediaPath": null,
+  "contatos": [
+    {
+      "nome": "Josue",
+      "telefone": "5519989808901"
+    }
+  ]
+}

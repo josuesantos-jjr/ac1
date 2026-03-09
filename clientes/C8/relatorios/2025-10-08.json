@@ -1,0 +1,42 @@
+[
+  {
+    "data": "2025-10-08T11:53:44.844Z",
+    "numeroTelefone": "5519989808901",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 1,
+    "limiteDiario": 61
+  },
+  {
+    "data": "2025-10-08T12:55:32.731Z",
+    "numeroTelefone": "5519989808901",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 2,
+    "limiteDiario": 61
+  },
+  {
+    "data": "2025-10-08T12:57:33.334Z",
+    "numeroTelefone": "5519989808901",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 3,
+    "limiteDiario": 61
+  },
+  {
+    "data": "2025-10-08T13:07:24.952Z",
+    "numeroTelefone": "5519994236090",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 4,
+    "limiteDiario": 61
+  },
+  {
+    "data": "2025-10-08T13:08:20.819Z",
+    "numeroTelefone": "5519991835768",
+    "status": true,
+    "etapaAquecimento": 7,
+    "quantidadeDisparada": 5,
+    "limiteDiario": 61
+  }
+]
