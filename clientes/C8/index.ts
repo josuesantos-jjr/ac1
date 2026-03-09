@@ -108,11 +108,18 @@ const VALIDATION_TIMEOUT = 10000; // 10 segundos máximo por validação
 const infoPath = path.join(__dirname, 'config', 'infoCliente.json');
 const infoConfig = JSON.parse(fs.readFileSync(infoPath, 'utf-8'));
 
-// Extrai o clientId direto baseado no infoCliente.json (ex: 'CMW')
+// Extrai o clientId direto baseado no infoCliente.json (ex: 'C8')
+// Usa o campo 'id' para o caminho da pasta, e 'CLIENTE' para display
 const clienteIdCompleto = (() => {
-    const client = infoConfig.CLIENTE || '';
-    if (client) {
-        return client; // Retorna apenas o nome do cliente
+    // Primeiro tenta usar o campo 'id' que é o identificador da pasta
+    const clientId = infoConfig.id || '';
+    if (clientId) {
+        return clientId; // Retorna o ID do cliente (ex: 'C8')
+    }
+    // Fallback: se não tiver 'id', tenta usar o nome da pasta
+    const pastaNome = path.basename(__dirname);
+    if (pastaNome && pastaNome !== 'C8') {
+        return pastaNome;
     }
     logger.error("Não foi possível determinar o clientId a partir do infoCliente.json");
     return null; // Retorna null se não conseguir determinar
@@ -828,8 +835,9 @@ if (fs.existsSync(chromePath)) {
 
 wppconnect
   .create({
-    session: cliente, // Usa o nome simples do cliente para nome da sessão local
+    session: clienteIdCompleto || cliente, // Usa o ID do cliente (C8) para nome da sessão
     headless: `new` as any,
+    autoClose: 0, // Desativa o auto-close para manter a sessão ativa
     puppeteerOptions: {
       protocolTimeout: 120000, // Aumenta o tempo limite do protocolo para 120 segundos
       args: ['--no-sandbox', '--disable-gpu', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process', '--no-zygote'],
@@ -890,8 +898,28 @@ wppconnect
       }
     }
   })
-  .then(client => { // Chama a função start passando o objeto client
-    start(client);
+  .then(async client => { // Chama a função start passando o objeto client
+    // Verifica se o cliente está conectado antes de chamar start
+    if (client && typeof client.isConnected === 'function') {
+      try {
+        const isConnected = await client.isConnected();
+        logger.info(`[WppConnect] Cliente conectado: ${isConnected}`);
+        
+        if (isConnected) {
+          start(client);
+        } else {
+          logger.warn(`[WppConnect] Cliente não está conectado, tentando iniciar...`);
+          start(client);
+        }
+      } catch (connError) {
+        logger.warn(`[WppConnect] Erro ao verificar conexão: ${connError}, tentando iniciar...`);
+        start(client);
+      }
+    } else {
+      // Se não conseguir verificar conexão, tenta iniciar mesmo assim
+      logger.warn(`[WppConnect] Cliente criado mas verificação de conexão não disponível`);
+      start(client);
+    }
   })
   .catch((erro: any) => {
     logger.error(`[WppConnect Error] Erro na inicialização do WppConnect:`, erro); // Log mais explícito no catch
@@ -902,43 +930,31 @@ wppconnect
                             errorMessage.includes('auto close') ||
                             errorMessage.toLowerCase().includes('auto close');
     
+    // Se for Auto Close, tenta iniciar mesmo assim (pode estar conectado)
     if (isAutoCloseError) {
-      logger.warn(`[WppConnect] Auto Close detectado - Encerrando execução da aplicação`);
+      logger.warn(`[WppConnect] Auto Close detectado - tentando iniciar mesmo assim...`);
+      // Não encerra a aplicação neste caso
+      // O código pode continuar porque a sessão pode estar ativa
+    } else {
+      // Para outros tipos de erro, encerra a aplicação
+      logger.error(`[WppConnect] Erro não relacionado ao Auto Close - encerrando`);
       
-      // Atualiza status da sessão para indicar encerramento por auto close
+      // Atualiza status da sessão para indicar encerramento por erro
       const updateStatusAndExit = async () => {
         try {
-          await updateInfoCliente('STATUS_SESSION', 'autoCloseCalled');
+          await updateInfoCliente('STATUS_SESSION', 'error');
           await updateInfoCliente('QR_CODE', null);
-          
-          // Remove arquivos temporários relacionados ao QR Code
-          const qrcodePath = path.join(__dirname, 'config', 'qrcode', 'qrcode.png');
-          if (fs.existsSync(qrcodePath)) {
-            try {
-              fs.unlinkSync(qrcodePath);
-              logger.info(`[WppConnect] QR Code file removido: ${qrcodePath}`);
-            } catch (fileError) {
-              logger.warn(`[WppConnect] Erro ao remover QR Code file:`, fileError);
-            }
-          }
-          
         } catch (updateError) {
           logger.error(`[WppConnect] Erro ao atualizar status antes do encerramento:`, updateError);
         } finally {
-          // Aguarda um pouco para os logs serem escritos
           setTimeout(() => {
-            logger.info(`[WppConnect] Encerrando aplicação por Auto Close Called`);
-            process.exit(0);
+            logger.info(`[WppConnect] Encerrando aplicação por erro`);
+            process.exit(1);
           }, 2000);
         }
       };
       
-      // Executa a limpeza e encerramento
       updateStatusAndExit();
-      
-    } else {
-      // Para outros tipos de erro, continua com o tratamento normal
-      logger.error(`[WppConnect] Erro não relacionado ao Auto Close - mantendo aplicação ativa`);
     }
   });
 
