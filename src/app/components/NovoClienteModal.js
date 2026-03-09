@@ -94,7 +94,8 @@ export default function NovoClienteModal({ isOpen, onClose, modelos, onSave }) {
     setIsLoading(true);
     setError('');
     try {
-      const dadosCompletos = { ...dadosCliente, ...config };
+      // Atualiza apenas o campo CLIENTE com o nome digitado, sem adicionar campo 'nome'
+      const dadosCompletos = { ...config, CLIENTE: dadosCliente.nome };
       console.log(`[NovoClienteModal] Chamando API para salvar dados. Cliente ID: ${novoClienteId}, Dados:`, dadosCompletos);
       // Chamar o endpoint da API para salvar os dados no Firebase
       const salvarDadosResponse = await fetch('/api/create-client-functions', {
